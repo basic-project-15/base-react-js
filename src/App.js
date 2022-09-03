@@ -1,31 +1,14 @@
-import logo from './logo.svg';
 import './App.css';
-import { Button } from '@mui/material';
+import { Typography } from '@mui/material';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p className={'bg-red-500'}>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <Button variant="text">Text</Button>
-        <Button className="my-10" variant="contained">
-          Contained
-        </Button>
-        <Button variant="outlined">Outlined</Button>
-      </header>
+    <div className="flex w-full bg-blue-400 h-screen justify-center items-center">
+      <Typography variant="h1" component="h2">
+        Hola Mundo
+      </Typography>
     </div>
   );
-}
+};
 
 export default App;
