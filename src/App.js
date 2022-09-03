@@ -1,4 +1,6 @@
-import './App.css';
+import React from 'react';
+
+// Components
 import { Typography } from '@mui/material';
 
 const App = () => {
