@@ -1,43 +1,39 @@
 .color-general {
-  color: #0081A7;
+  color: #0081a7;
 }
 
 .color-primary {
-  color: #00AFB9;
+  color: #00afb9;
 }
 
 .color-secondary {
-  color: #F07167;
+  color: #f07167;
 }
 
 .color-optional {
-  color: #FED9B7;
+  color: #fed9b7;
 }
 
 .color-neutral {
-  color: #FDFCDC;
+  color: #fdfcdc;
 }
 
 .bg-general {
-  background-color: #0081A7;
+  background-color: #0081a7;
 }
-
 
 .bg-primary {
-  background-color: #00AFB9;
+  background-color: #00afb9;
 }
-
 
 .bg-secondary {
-  background-color: #F07167;
+  background-color: #f07167;
 }
-
 
 .bg-optional {
-  background-color: #FED9B7;
+  background-color: #fed9b7;
 }
 
-
 .bg-neutral {
-  background-color: #FDFCDC;
+  background-color: #fdfcdc;
 }
