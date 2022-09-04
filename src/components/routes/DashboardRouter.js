@@ -2,18 +2,19 @@ import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 // Components
-import { Home } from '../pages';
+import { Configuration, Home } from '../pages';
+import { DashboardLayout } from '../templates';
 
 export const DashboardRouter = () => {
   return (
-    <div>
-      <h1>Layout</h1>
+    <DashboardLayout>
       <Routes>
         <Route path="/" element={<Navigate to="/dashboard/home" />} />
         <Route path="/home" element={<Home />} />
+        <Route path="/configuration" element={<Configuration />} />
         <Route path="*" element={<Navigate to="/page-error" replace />} />
       </Routes>
-    </div>
+    </DashboardLayout>
   );
 };
 
