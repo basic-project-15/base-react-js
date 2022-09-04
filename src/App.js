@@ -1,19 +1,18 @@
-import React from 'react';
+import React, { useReducer } from 'react';
+
+// Hooks
+import { AuthContext, authReducer } from './hooks';
 
 // Components
-import { Typography } from '@mui/material';
+import AppRouter from './components/routes/AppRouter';
 
 const App = () => {
+  const [auth, dispatchAuth] = useReducer(authReducer, {});
+
   return (
-    <div className="flex w-full bg-blue-400 h-screen justify-center items-center">
-      <Typography
-        variant="h1"
-        component="h2"
-        style={{ fontFamily: 'Poppins-Regular' }}
-      >
-        Hola Mundo
-      </Typography>
-    </div>
+    <AuthContext.Provider value={{ auth, dispatchAuth }}>
+      <AppRouter isAuth={auth?.isLogin} />
+    </AuthContext.Provider>
   );
 };
 
