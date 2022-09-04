@@ -1,0 +1,43 @@
+.color-general {
+  color: #0081A7;
+}
+
+.color-primary {
+  color: #00AFB9;
+}
+
+.color-secondary {
+  color: #F07167;
+}
+
+.color-optional {
+  color: #FED9B7;
+}
+
+.color-neutral {
+  color: #FDFCDC;
+}
+
+.bg-general {
+  background-color: #0081A7;
+}
+
+
+.bg-primary {
+  background-color: #00AFB9;
+}
+
+
+.bg-secondary {
+  background-color: #F07167;
+}
+
+
+.bg-optional {
+  background-color: #FED9B7;
+}
+
+
+.bg-neutral {
+  background-color: #FDFCDC;
+}
