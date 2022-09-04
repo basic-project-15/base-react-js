@@ -11,3 +11,6 @@
 7. En las configuraciones de VS Code, activar el formateo automático al guradar cambios de arhchivos.
 8. Correr el comando `npm install`.
 9. Correr el comando `npm start`.
+
+## Despligue de la app
+1. Desarrollo: https://dev-bp-15-admin.netlify.app/
