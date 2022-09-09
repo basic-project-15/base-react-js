@@ -8,7 +8,7 @@
 4. Instalar el plugin de "prettier".
 5. Instalar el plugin de "Tailwind CSS IntelliSense".
 6. Establecer prettier como el formateador predeterminado para archivos .js y .jsx.
-7. En las configuraciones de VS Code, activar el formateo automático al guradar cambios de arhchivos.
+7. En las configuraciones de VS Code, activar el formateo automático al guardar cambios de archivos.
 8. Correr el comando `npm install`.
 9. Correr el comando `npm start`.
 
