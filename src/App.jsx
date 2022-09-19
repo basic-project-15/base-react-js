@@ -4,7 +4,7 @@ import React, { useReducer } from 'react';
 import { AuthContext, authReducer } from './hooks';
 
 // Components
-import AppRouter from './components/routes/AppRouter';
+import { AppRouter } from './components/routes';
 
 const App = () => {
   const [auth, dispatchAuth] = useReducer(authReducer, {});

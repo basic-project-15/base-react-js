@@ -11,7 +11,7 @@ import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 
 // Styles
-import './styles/index.css';
+import './styles.css';
 
 const DrawerItem = ({
   text = '',

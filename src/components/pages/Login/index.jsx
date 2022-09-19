@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
 
 // Hooks
-import { AuthContext } from '../../hooks';
+import { AuthContext } from '../../../hooks';
 
 // Components
 import { Button } from '@mui/material';
 
 // Const
-import { authTypes } from '../../common/types';
+import { authTypes } from '../../../common/types';
 
 const Login = () => {
   const { dispatchAuth } = useContext(AuthContext);
