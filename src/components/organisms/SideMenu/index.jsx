@@ -2,7 +2,7 @@ import React, { memo, useContext } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 // Hooks
-import { AuthContext } from '../../../hooks';
+import { AuthContext } from '../../../hooks/context';
 
 // Components
 import List from '@mui/material/List';

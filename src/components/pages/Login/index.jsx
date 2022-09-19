@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
 // Hooks
-import { AuthContext } from '../../../hooks';
+import { AuthContext } from '../../../hooks/context';
 
 // Components
 import { Button } from '@mui/material';
