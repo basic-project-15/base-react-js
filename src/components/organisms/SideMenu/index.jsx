@@ -13,6 +13,7 @@ import { authTypes } from '../../../common/types';
 
 // Assets
 import { ReactComponent as HomeIcon } from '../../../assets/icons/HomeIcon.svg';
+import ExtensionIcon from '@mui/icons-material/Extension';
 import SettingsIcon from '@mui/icons-material/Settings';
 import ScienceIcon from '@mui/icons-material/Science';
 import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
@@ -40,6 +41,12 @@ const SideMenu = ({ onChange = () => null }) => {
 
   const handleLogout = () => {
     dispatchAuth({ type: authTypes.logout });
+    onChange();
+  };
+
+  const handleComponentsText = () => {
+    navigate('/dashboard/componentsText');
+    onChange();
   };
 
   return (
@@ -71,10 +78,10 @@ const SideMenu = ({ onChange = () => null }) => {
           <Collapse in={showComponents} timeout="auto" unmountOnExit>
             <List className="flex flex-col gap-1 py-0 ml-2">
               <DrawerItem
-                text={'Configuraciones'}
-                onClick={handleConfiguration}
-                icon={<SettingsIcon className="text-white" />}
-                isSelected={location.pathname === '/dashboard/configuration'}
+                text={'Textos y colores'}
+                onClick={handleComponentsText}
+                icon={<ExtensionIcon className="text-white" />}
+                isSelected={location.pathname === '/dashboard/componentsText'}
               />
             </List>
           </Collapse>
