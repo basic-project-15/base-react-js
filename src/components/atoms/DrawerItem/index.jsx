@@ -2,7 +2,6 @@ import React from 'react';
 
 // Components
 import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 
@@ -29,15 +28,15 @@ const DrawerItem = ({
     <ListItem
       disablePadding
       onClick={handleClick}
-      className={`drawer-item-color ${
+      className={`drawer-item-color my-0 w-full ${
         isSelected ? 'drawer-item-color-select' : ''
       }`}
     >
-      <ListItemButton>
+      <div className="w-full py-2 flex cursor-pointer items-center">
         <ListItemIcon>{icon}</ListItemIcon>
         <ListItemText className="txt-nav" primary={text} />
         {isCollapse ? collapse ? <ExpandLess /> : <ExpandMore /> : null}
-      </ListItemButton>
+      </div>
     </ListItem>
   );
 };

@@ -14,7 +14,7 @@ const HeaderMenu = ({ drawerWidth, handleDrawerToggle }) => {
       sx={{
         width: { md: `calc(100% - ${drawerWidth}px)` },
         ml: { md: `${drawerWidth}px` },
-        backgroundColor: 'transparent',
+        backgroundColor: '#ffffff',
       }}
     >
       <Toolbar>
@@ -26,7 +26,6 @@ const HeaderMenu = ({ drawerWidth, handleDrawerToggle }) => {
         >
           <MenuIcon />
         </IconButton>
-        <div>Header Menu</div>
       </Toolbar>
     </AppBar>
   );
