@@ -4,4 +4,6 @@ export const colors = {
   secondary: '#F07167',
   optional: '#FED9B7',
   neutral: '#FDFCDC',
+  white: '#FFFFFF',
+  black: '#000000',
 };

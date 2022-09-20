@@ -12,9 +12,14 @@ import { DrawerItem } from '../../atoms';
 import { authTypes } from '../../../common/types';
 
 // Assets
-import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
-import SettingsIcon from '@mui/icons-material/Settings';
 import { ReactComponent as HomeIcon } from '../../../assets/icons/HomeIcon.svg';
+import SettingsIcon from '@mui/icons-material/Settings';
+import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
+
+// Styles
+import { colors } from '../../styles/theme';
+
+const { white } = colors;
 
 const SideMenu = ({ onChange = () => null }) => {
   const location = useLocation();
@@ -43,19 +48,19 @@ const SideMenu = ({ onChange = () => null }) => {
           <DrawerItem
             text={'Dashboard'}
             onClick={handleHome}
-            icon={<HomeIcon />}
+            icon={<HomeIcon fill={white} />}
             isSelected={location.pathname === '/dashboard/home'}
           />
           <DrawerItem
             text={'Configuraciones'}
             onClick={handleConfiguration}
-            icon={<SettingsIcon />}
+            icon={<SettingsIcon className="text-white" />}
             isSelected={location.pathname === '/dashboard/configuration'}
           />
           <DrawerItem
             text={'Cerrar sesión'}
             onClick={handleLogout}
-            icon={<PowerSettingsNewIcon />}
+            icon={<PowerSettingsNewIcon className="text-white" />}
           />
         </List>
       </div>
