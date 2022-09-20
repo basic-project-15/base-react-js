@@ -1,11 +1,11 @@
-import React, { memo, useContext } from 'react';
+import React, { memo, useContext, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 // Hooks
 import { AuthContext } from '../../../hooks/context';
 
 // Components
-import List from '@mui/material/List';
+import { Collapse, List } from '@mui/material';
 import { DrawerItem } from '../../atoms';
 
 // Const
@@ -14,6 +14,7 @@ import { authTypes } from '../../../common/types';
 // Assets
 import { ReactComponent as HomeIcon } from '../../../assets/icons/HomeIcon.svg';
 import SettingsIcon from '@mui/icons-material/Settings';
+import ScienceIcon from '@mui/icons-material/Science';
 import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
 
 // Styles
@@ -25,6 +26,7 @@ const SideMenu = ({ onChange = () => null }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const { dispatchAuth } = useContext(AuthContext);
+  const [showComponents, setShowComponents] = useState(false);
 
   const handleHome = () => {
     navigate('/dashboard/home');
@@ -42,11 +44,11 @@ const SideMenu = ({ onChange = () => null }) => {
 
   return (
     <div className="flex flex-col h-full p-4">
-      <div className="d-flex justify-center items-center pt-5 pb-4 text-white">
+      <div className="flex justify-center items-center pt-5 pb-4 text-white">
         Logo
       </div>
-      <div className="h-100 flex flex-col justify-between">
-        <List>
+      <div className="h-full flex flex-col justify-between">
+        <List className="flex flex-col gap-1 py-0">
           <DrawerItem
             text={'Dashboard'}
             onClick={handleHome}
@@ -59,6 +61,25 @@ const SideMenu = ({ onChange = () => null }) => {
             icon={<SettingsIcon className="text-white" />}
             isSelected={location.pathname === '/dashboard/configuration'}
           />
+          <DrawerItem
+            text={'Componentes'}
+            onClick={() => setShowComponents(!showComponents)}
+            icon={<ScienceIcon className="text-white" />}
+            isCollapse
+            collapse={showComponents}
+          />
+          <Collapse in={showComponents} timeout="auto" unmountOnExit>
+            <List className="flex flex-col gap-1 py-0 ml-2">
+              <DrawerItem
+                text={'Configuraciones'}
+                onClick={handleConfiguration}
+                icon={<SettingsIcon className="text-white" />}
+                isSelected={location.pathname === '/dashboard/configuration'}
+              />
+            </List>
+          </Collapse>
+        </List>
+        <List className="flex flex-col gap-1 py-0 ml-2">
           <DrawerItem
             text={'Cerrar sesión'}
             onClick={handleLogout}
