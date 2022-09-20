@@ -2,19 +2,19 @@ import React, { memo, useContext } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 // Hooks
-import { AuthContext } from '../../hooks';
+import { AuthContext } from '../../../hooks/context';
 
 // Components
 import List from '@mui/material/List';
-import { DrawerItem } from '../atoms';
+import { DrawerItem } from '../../atoms';
 
 // Const
-import { authTypes } from '../../common/types';
+import { authTypes } from '../../../common/types';
 
 // Assets
 import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
 import SettingsIcon from '@mui/icons-material/Settings';
-import { ReactComponent as HomeIcon } from '../../assets/icons/HomeIcon.svg';
+import { ReactComponent as HomeIcon } from '../../../assets/icons/HomeIcon.svg';
 
 const SideMenu = ({ onChange = () => null }) => {
   const location = useLocation();

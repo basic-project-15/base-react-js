@@ -5,12 +5,13 @@ import {
   Route,
   Navigate,
 } from 'react-router-dom';
-import { Login, Error404 } from '../pages';
-import { DashboardRouter, PrivateRoute, PublicRoute } from '.';
+import { Login, Error404 } from '../../pages';
 
 // Styles
-import '../styles/fonts.css';
-import '../styles/colors.css';
+import '../../styles/fonts.css';
+import '../../styles/colors.css';
+
+import { DashboardRouter, PrivateRoute, PublicRoute } from '../../routes';
 
 const AppRouter = ({ isAuth = false }) => {
   return (

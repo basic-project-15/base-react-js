@@ -5,13 +5,13 @@ import Box from '@mui/material/Box';
 import CssBaseline from '@mui/material/CssBaseline';
 import Drawer from '@mui/material/Drawer';
 import Toolbar from '@mui/material/Toolbar';
-import { HeaderMenu, SideMenu } from '../organisms';
+import { HeaderMenu, SideMenu } from '../../organisms';
 
 // Const
-import { drawerWidth } from '../../common/const';
+import { drawerWidth } from '../../../common/constants';
 
 // Styles
-import { colors } from '../styles/theme';
+import { colors } from '../../styles/theme';
 
 const DashboardLayout = ({ children = null, window = undefined }) => {
   const [mobileOpen, setMobileOpen] = useState(false);

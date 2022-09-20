@@ -2,8 +2,8 @@ import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 // Components
-import { Configuration, Home } from '../pages';
-import { DashboardLayout } from '../templates';
+import { Configuration, Home } from '../../pages';
+import { DashboardLayout } from '../../templates';
 
 export const DashboardRouter = () => {
   return (
