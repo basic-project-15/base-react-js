@@ -10,7 +10,7 @@ const ComponentsText = () => {
       <TextCustom text="Componentes para textos" className="text-6xl" />
       <Divider />
       <div className="px-4 pt-4">
-        <TextCustom text="Variantes" className="text-2xl" />
+        <TextCustom text="Variantes" className="text-3xl" />
         <Divider />
         <div className="flex flex-col">
           <TextCustom text="Variante h1" variant="h1" />
@@ -23,7 +23,7 @@ const ComponentsText = () => {
         <Divider />
       </div>
       <div className="px-4 pt-4">
-        <TextCustom text="Tamaños" className="text-2xl" />
+        <TextCustom text="Tamaños" className="text-3xl" />
         <Divider />
         <div className="flex flex-col">
           <TextCustom text="text-xs" className="text-xs" />
@@ -40,6 +40,29 @@ const ComponentsText = () => {
           <TextCustom text="text-8xl" className="text-8xl" />
           <TextCustom text="text-8xl" className="text-8xl" />
           <TextCustom text="text-9xl" className="text-9xl" />
+        </div>
+        <Divider />
+      </div>
+      <div className="px-4 pt-4">
+        <TextCustom text="Fuentes" className="text-3xl" />
+        <Divider />
+        <div className="flex flex-col">
+          <TextCustom text="Poppins-Regular" className="fontPRegular" />
+          <TextCustom text="Poppins-Medium" className="fontPMedium" />
+          <TextCustom text="Poppins-SemiBold" className="fontPSemiBold" />
+          <TextCustom text="Poppins-bold" className="fontPBold" />
+        </div>
+        <Divider />
+      </div>
+      <div className="px-4 pt-4">
+        <TextCustom text="Colores" className="text-3xl" />
+        <Divider />
+        <div className="flex flex-col">
+          <TextCustom text="Blanco" className="text-white bg-black" />
+          <TextCustom text="Rojo" className="text-red-600" />
+          <TextCustom text="Azul" className="text-blue-600" />
+          <TextCustom text="Verde" className="text-green-600" />
+          <TextCustom text="Negro" className="text-black" />
         </div>
         <Divider />
       </div>
