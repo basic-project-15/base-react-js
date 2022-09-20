@@ -9,6 +9,7 @@ export const colors = {
   gray: '#6C757D',
 
   // Alerts
-  danger: '#FF4859',
-  warning: '#EEC911',
+  success: '#22bb33',
+  danger: '#F32013',
+  warning: '#ffcc00',
 };

@@ -13,7 +13,7 @@ const ComponentsButton = () => {
     <div>
       <TextCustom text="Componentes para botones" className="text-6xl" />
       <Divider />
-      <ButtonCustom text="Por Defecto" />
+      <ButtonCustom text="Por defecto" />
       {/* Variante de Botones */}
       <div className="px-4 pt-4">
         <TextCustom text="Variantes" className="text-3xl" />
@@ -40,12 +40,12 @@ const ComponentsButton = () => {
         <Divider />
         <div className="flex flex-col gap-1">
           <div className="flex gap-1">
-            <ButtonCustom text="Por Defecto" />
-            <ButtonCustom text="Por Defecto" variant="outlined" />
-            <ButtonCustom text="Por Defecto" variant="text" />
-            <ButtonCustom text="Por Defecto" disabled />
-            <ButtonCustom text="Por Defecto" variant="outlined" disabled />
-            <ButtonCustom text="Por Defecto" variant="text" disabled />
+            <ButtonCustom text="Por defecto" />
+            <ButtonCustom text="Por defecto" variant="outlined" />
+            <ButtonCustom text="Por defecto" variant="text" />
+            <ButtonCustom text="Por defecto" disabled />
+            <ButtonCustom text="Por defecto" variant="outlined" disabled />
+            <ButtonCustom text="Por defecto" variant="text" disabled />
           </div>
           <div className="flex gap-1">
             <ButtonCustom text="Primario" typeColor="primary" />
@@ -96,6 +96,28 @@ const ComponentsButton = () => {
             />
           </div>
           <div className="flex gap-1">
+            <ButtonCustom text="Exitoso" typeColor="success" />
+            <ButtonCustom
+              text="Exitoso"
+              typeColor="success"
+              variant="outlined"
+            />
+            <ButtonCustom text="Exitoso" typeColor="success" variant="text" />
+            <ButtonCustom text="Exitoso" typeColor="success" disabled />
+            <ButtonCustom
+              text="Exitoso"
+              typeColor="success"
+              variant="outlined"
+              disabled
+            />
+            <ButtonCustom
+              text="Exitoso"
+              typeColor="success"
+              variant="text"
+              disabled
+            />
+          </div>
+          <div className="flex gap-1">
             <ButtonCustom text="Alerta" typeColor="danger" />
             <ButtonCustom text="Alerta" typeColor="danger" variant="outlined" />
             <ButtonCustom text="Alerta" typeColor="danger" variant="text" />
@@ -140,22 +162,18 @@ const ComponentsButton = () => {
             />
           </div>
           <div className="flex gap-1">
-            <ButtonCustom text="Default" typeColor="default" />
+            <ButtonCustom text="Gris" typeColor="default" />
+            <ButtonCustom text="Gris" typeColor="default" variant="outlined" />
+            <ButtonCustom text="Gris" typeColor="default" variant="text" />
+            <ButtonCustom text="Gris" typeColor="default" disabled />
             <ButtonCustom
-              text="Default"
-              typeColor="default"
-              variant="outlined"
-            />
-            <ButtonCustom text="Default" typeColor="default" variant="text" />
-            <ButtonCustom text="Default" typeColor="default" disabled />
-            <ButtonCustom
-              text="Default"
+              text="Gris"
               typeColor="default"
               variant="outlined"
               disabled
             />
             <ButtonCustom
-              text="Default"
+              text="Gris"
               typeColor="default"
               variant="text"
               disabled

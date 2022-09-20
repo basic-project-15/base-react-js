@@ -6,7 +6,7 @@ import { Button } from '@mui/material';
 // Styles
 import { colors } from '../../styles/theme';
 
-const { primary, secondary, danger, warning, gray } = colors;
+const { primary, secondary, success, danger, warning, gray } = colors;
 
 const ButtonCustom = ({
   text = '',
@@ -27,6 +27,9 @@ const ButtonCustom = ({
         break;
       case 'secondary':
         customColor = secondary;
+        break;
+      case 'success':
+        customColor = success;
         break;
       case 'danger':
         customColor = danger;
