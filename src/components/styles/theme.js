@@ -6,4 +6,9 @@ export const colors = {
   neutral: '#FDFCDC',
   white: '#FFFFFF',
   black: '#000000',
+  gray: '#6C757D',
+
+  // Alerts
+  danger: '#FF4859',
+  warning: '#EEC911',
 };

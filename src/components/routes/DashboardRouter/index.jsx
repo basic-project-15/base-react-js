@@ -2,7 +2,12 @@ import React from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 
 // Components
-import { ComponentsText, Configuration, Home } from '../../pages';
+import {
+  ComponentsButton,
+  ComponentsText,
+  Configuration,
+  Home,
+} from '../../pages';
 import { DashboardLayout } from '../../templates';
 
 export const DashboardRouter = () => {
@@ -12,6 +17,7 @@ export const DashboardRouter = () => {
         <Route path="/" element={<Navigate to="/dashboard/home" />} />
         <Route path="/home" element={<Home />} />
         <Route path="/configuration" element={<Configuration />} />
+        <Route path="/componentsButton" element={<ComponentsButton />} />
         <Route path="/componentsText" element={<ComponentsText />} />
         <Route path="*" element={<Navigate to="/page-error" replace />} />
       </Routes>
