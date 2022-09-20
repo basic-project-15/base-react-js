@@ -28,7 +28,7 @@ const DashboardLayout = ({ children = null, window = undefined }) => {
   };
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box className="flex h-screen">
       <CssBaseline />
       <HeaderMenu
         drawerWidth={drawerWidth}
@@ -76,8 +76,8 @@ const DashboardLayout = ({ children = null, window = undefined }) => {
       </Box>
       <Box
         component="main"
+        className="flex flex-col h-100"
         sx={{
-          flexGrow: 1,
           p: 3,
           width: { sm: `calc(100% - ${drawerWidth}px)` },
         }}

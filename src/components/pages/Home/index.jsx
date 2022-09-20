@@ -5,7 +5,7 @@ import { Typography } from '@mui/material';
 
 const Home = () => {
   return (
-    <div className="flex w-full bg-blue-400 h-screen justify-center items-center">
+    <div className="flex w-full h-full justify-center items-center">
       <Typography
         variant="h1"
         component="h2"

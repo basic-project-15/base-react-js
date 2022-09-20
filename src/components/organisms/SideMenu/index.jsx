@@ -42,7 +42,9 @@ const SideMenu = ({ onChange = () => null }) => {
 
   return (
     <div className="flex flex-col h-full p-4">
-      <div className="d-flex justify-center items-center pt-5 pb-4">Logo</div>
+      <div className="d-flex justify-center items-center pt-5 pb-4 text-white">
+        Logo
+      </div>
       <div className="h-100 flex flex-col justify-between">
         <List>
           <DrawerItem
