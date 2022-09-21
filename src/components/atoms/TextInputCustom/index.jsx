@@ -1,8 +1,13 @@
 import React, { memo } from 'react';
 
 // Components
-import { TextField } from '@mui/material';
-import { TextCustom } from '../';
+import { InputAdornment, TextField } from '@mui/material';
+import { TextCustom, IconButtonCustom } from '../';
+
+// Styles
+import { colors } from '../../styles/theme';
+
+const { black, white, gray, green, red, primary } = colors;
 
 const TextInputCustom = ({
   name = '',
@@ -12,6 +17,10 @@ const TextInputCustom = ({
   type = 'text',
   maxLength = null,
   className = '',
+  iconStart = null,
+  iconEnd = null,
+  iconMode = 'adornment',
+  iconOnClick = () => null,
   msgError = '',
   disabled = false,
   multiline = false,
@@ -21,6 +30,22 @@ const TextInputCustom = ({
   const handleOnChange = e => {
     const inputValue = e.target.value;
     setValue(inputValue);
+  };
+
+  const renderIcon = icon => {
+    if (icon) {
+      return iconMode === 'button' ? (
+        <IconButtonCustom
+          icon={icon}
+          onClick={iconOnClick}
+          typeColor="primary"
+        />
+      ) : (
+        <InputAdornment>{icon}</InputAdornment>
+      );
+    } else {
+      return null;
+    }
   };
 
   return (
@@ -42,6 +67,10 @@ const TextInputCustom = ({
           maxLength: maxLength,
           style: { textAlign: 'left' },
         }}
+        InputProps={{
+          startAdornment: renderIcon(iconStart),
+          endAdornment: renderIcon(iconEnd),
+        }}
         sx={{
           '& legend': {
             marginLeft: 2,
@@ -50,17 +79,12 @@ const TextInputCustom = ({
             '& fieldset': {
               borderRadius: 2,
               border: msgError.length > 0 || success ? 2 : 1,
-              borderColor:
-                msgError.length > 0
-                  ? '#FB3030'
-                  : success
-                  ? '#2DA54B'
-                  : '#858C94',
-              color: '#000',
+              borderColor: msgError.length > 0 ? red : success ? green : gray,
+              color: black,
             },
             '&.Mui-focused fieldset': {
-              borderColor: '#0078FF',
-              color: 'black',
+              borderColor: primary,
+              color: black,
               fontSize: 18,
             },
           },
@@ -69,23 +93,22 @@ const TextInputCustom = ({
           },
           '& .MuiInputLabel-shrink': {
             marginLeft: 2,
-            color: 'black',
+            color: black,
             fontSize: 18,
             fontWeight: '600',
             '& .MuiInputLabel-asterisk': {
-              color: 'red',
+              color: red,
               display: 'inline',
             },
           },
-          backgroundColor: disabled ? '#e9ecef' : '#FFFFFF',
+          backgroundColor: disabled ? gray : white,
           borderRadius: 2,
           marginTop: 1,
         }}
       />
       <TextCustom
         text={msgError}
-        style={{ color: 'red' }}
-        className="text-xs ml-1 mt-1 fontPRegular"
+        className="text-xs ml-1 mt-1 fontPRegular color-red"
       />
     </div>
   );

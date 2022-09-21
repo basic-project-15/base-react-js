@@ -1,6 +1,6 @@
 import { colors } from '../../components/styles/theme';
 
-const { primary, secondary, success, danger, warning, gray } = colors;
+const { primary, secondary, green, red, orange, gray } = colors;
 
 export const renderColor = (typeColor = '') => {
   let customColor = undefined;
@@ -12,13 +12,13 @@ export const renderColor = (typeColor = '') => {
       customColor = secondary;
       break;
     case 'success':
-      customColor = success;
+      customColor = green;
       break;
     case 'danger':
-      customColor = danger;
+      customColor = red;
       break;
     case 'warning':
-      customColor = warning;
+      customColor = orange;
       break;
     case 'default':
       customColor = gray;
