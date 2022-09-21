@@ -6,7 +6,7 @@ import { TextCustom } from '../../atoms';
 
 const ComponentsText = () => {
   return (
-    <div>
+    <div className="pb-4">
       <TextCustom text="Componentes para textos" className="text-6xl" />
       <Divider />
       <div className="px-4 pt-4">

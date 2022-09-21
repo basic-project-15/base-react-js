@@ -1,1 +1,1 @@
-export {};
+export { renderColor } from './renders';

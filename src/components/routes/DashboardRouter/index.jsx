@@ -4,6 +4,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 // Components
 import {
   ComponentsButton,
+  ComponentsInputs1,
   ComponentsText,
   Configuration,
   Home,
@@ -18,6 +19,7 @@ export const DashboardRouter = () => {
         <Route path="/home" element={<Home />} />
         <Route path="/configuration" element={<Configuration />} />
         <Route path="/componentsButton" element={<ComponentsButton />} />
+        <Route path="/componentsInputs1" element={<ComponentsInputs1 />} />
         <Route path="/componentsText" element={<ComponentsText />} />
         <Route path="*" element={<Navigate to="/page-error" replace />} />
       </Routes>

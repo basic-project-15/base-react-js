@@ -11,7 +11,7 @@ import { Login, Error404 } from '../../pages';
 import '../../styles/fonts.css';
 import '../../styles/colors.css';
 
-import { DashboardRouter, PrivateRoute, PublicRoute } from '../../routes';
+import { DashboardRouter, PrivateRoute, PublicRoute } from '../';
 
 const AppRouter = ({ isAuth = false }) => {
   return (
