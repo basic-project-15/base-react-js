@@ -11,7 +11,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 
 const ComponentsButton = () => {
   return (
-    <div>
+    <div className="pb-4">
       <TextCustom text="Componentes para botones" className="text-6xl" />
       <Divider />
       <ButtonCustom text="Por defecto" />

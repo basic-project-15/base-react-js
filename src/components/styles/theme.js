@@ -7,8 +7,7 @@ export const colors = {
   white: '#FFFFFF',
   black: '#000000',
   gray: '#6C757D',
-
-  // Alerts
+  ligthGray: '#CDCDCD',
   green: '#22bb33',
   red: '#F32013',
   orange: '#ffcc00',

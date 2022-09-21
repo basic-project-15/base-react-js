@@ -7,7 +7,7 @@ import { TextCustom, IconButtonCustom } from '../';
 // Styles
 import { colors } from '../../styles/theme';
 
-const { black, white, gray, green, red, primary } = colors;
+const { black, white, gray, ligthGray, green, red, primary } = colors;
 
 const TextInputCustom = ({
   name = '',
@@ -20,6 +20,7 @@ const TextInputCustom = ({
   iconStart = null,
   iconEnd = null,
   iconMode = 'adornment',
+  iconTypeColor = 'primary',
   iconOnClick = () => null,
   msgError = '',
   disabled = false,
@@ -38,7 +39,7 @@ const TextInputCustom = ({
         <IconButtonCustom
           icon={icon}
           onClick={iconOnClick}
-          typeColor="primary"
+          typeColor={iconTypeColor}
         />
       ) : (
         <InputAdornment>{icon}</InputAdornment>
@@ -101,7 +102,7 @@ const TextInputCustom = ({
               display: 'inline',
             },
           },
-          backgroundColor: disabled ? gray : white,
+          backgroundColor: disabled ? ligthGray : white,
           borderRadius: 2,
           marginTop: 1,
         }}
