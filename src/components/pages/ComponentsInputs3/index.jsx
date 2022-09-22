@@ -1,21 +1,89 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 // Components
 import { Divider } from '@mui/material';
-import { TextCustom } from '../../atoms';
+import { CheckBoxCustom, ControlLabelCustom, TextCustom } from '../../atoms';
 
 const ComponentsInputs3 = () => {
+  const [check1, setCheck1] = useState(false);
+  const [check2, setCheck2] = useState(true);
+  const [check3, setCheck3] = useState(false);
+  const [check4, setCheck4] = useState(true);
+
   return (
-    <div className="pb-4">
-      <TextCustom text="CheckBox y RadioButtons" className="text-6xl" />
+    <div className="pb-4 flex flex-col">
+      <TextCustom text="CheckBox" className="text-6xl" />
       <Divider />
-      {/* CheckCustom */}
+      {/* Estados */}
       <div className="px-4 pt-4">
-        <TextCustom text="CheckCustom" className="text-3xl" />
+        <TextCustom text="Estados" className="text-3xl" />
         <Divider />
-        <div className="flex flex-col gap-1"></div>
+        <div className="flex flex-row gap-1">
+          <CheckBoxCustom value={check1} setValue={setCheck1} />
+          <CheckBoxCustom value={check2} setValue={setCheck2} />
+          <CheckBoxCustom value={check3} setValue={setCheck3} disabled />
+          <CheckBoxCustom value={check4} setValue={setCheck4} disabled />
+        </div>
         <Divider />
       </div>
+      {/* Tamaños */}
+      <div className="px-4 pt-4">
+        <TextCustom text="Tamaños" className="text-3xl" />
+        <Divider />
+        <div className="flex flex-row items-center gap-1">
+          <CheckBoxCustom value size="small" />
+          <CheckBoxCustom value />
+          <CheckBoxCustom value fontSize={10} />
+          <CheckBoxCustom value fontSize={20} />
+          <CheckBoxCustom value fontSize={30} />
+          <CheckBoxCustom value fontSize={40} />
+        </div>
+        <Divider />
+      </div>
+      {/* Colores */}
+      <div className="px-4 pt-4">
+        <TextCustom text="Colores" className="text-3xl" />
+        <Divider />
+        <div className="flex flex-row items-center gap-1">
+          <CheckBoxCustom value />
+          <CheckBoxCustom />
+          <CheckBoxCustom value color={'secondary'} />
+          <CheckBoxCustom color={'secondary'} />
+          <CheckBoxCustom value color={'success'} />
+          <CheckBoxCustom color={'success'} />
+          <CheckBoxCustom value color={'default'} />
+          <CheckBoxCustom color={'default'} />
+          <CheckBoxCustom value customColor={'#FFFF00'} />
+          <CheckBoxCustom customColor={'#FFFF00'} />
+        </div>
+        <Divider />
+      </div>
+      {/* Etiquetas */}
+      <div className="px-4 pt-4">
+        <TextCustom text="Etiquetas" className="text-3xl" />
+        <Divider />
+        <div className="flex flex-row items-center gap-1">
+          <ControlLabelCustom name={'Default'}>
+            <CheckBoxCustom value />
+          </ControlLabelCustom>
+          <ControlLabelCustom name={'Top'} align="top">
+            <CheckBoxCustom value />
+          </ControlLabelCustom>
+          <ControlLabelCustom name={'Start'} align="start">
+            <CheckBoxCustom value />
+          </ControlLabelCustom>
+          <ControlLabelCustom name={'Bottom'} align="bottom">
+            <CheckBoxCustom value />
+          </ControlLabelCustom>
+          <ControlLabelCustom name={'End'} align="end">
+            <CheckBoxCustom value />
+          </ControlLabelCustom>
+        </div>
+        <Divider />
+      </div>
+      <Divider />
+      <TextCustom text="RadioButtons" className="text-6xl mt-4" />
+      <Divider />
     </div>
   );
 };
