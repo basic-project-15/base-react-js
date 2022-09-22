@@ -4,6 +4,9 @@ import React, { memo } from 'react';
 import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
 import { CheckBoxCustom, TextCustom } from '../';
 
+// Core
+import { colors } from '../../styles/theme';
+
 const SelectCustom = ({
   className = '',
   disabled = false,
@@ -17,6 +20,7 @@ const SelectCustom = ({
   value = '',
   msgError = '',
   success = false,
+  fontSize = 18,
 }) => {
   const handleChange = event => {
     const inputValue = event.target.value;
@@ -39,26 +43,26 @@ const SelectCustom = ({
   return (
     <div className={`flex flex-col ${className}`}>
       <FormControl
-        size={size}
+        size="large"
         required={required}
         fullWidth
         sx={{
+          marginTop: 1,
           '& .MuiInputLabel-asterisk': {
             display: 'none',
           },
           '& .MuiInputLabel-shrink': {
             marginLeft: 2,
-            color: 'black',
+            color: colors.black,
             fontWeight: '600',
             '& .MuiInputLabel-asterisk': {
-              color: 'red',
+              color: colors.red,
               display: 'inline',
             },
           },
-          marginTop: 1,
         }}
       >
-        <InputLabel id="demo-simple-select-label" style={{ fontSize: 18 }}>
+        <InputLabel id="demo-simple-select-label" style={{ fontSize }}>
           {name}
         </InputLabel>
         <Select
@@ -82,23 +86,24 @@ const SelectCustom = ({
             },
             '& legend': {
               marginLeft: 2,
+              fontSize: fontSize * 0.82,
             },
             '& fieldset': {
               borderRadius: 2,
               border: msgError.length > 0 || success ? 2 : 1,
               borderColor:
                 msgError.length > 0
-                  ? '#FB3030'
+                  ? colors.red
                   : success
-                  ? '#2DA54B'
-                  : '#858C94',
-              color: '#000',
+                  ? colors.green
+                  : colors.gray,
+              color: colors.black,
             },
             '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
-              borderColor: '#0078FF',
-              color: 'black',
+              borderColor: colors.primary,
+              color: colors.black,
             },
-            backgroundColor: disabled ? '#e9ecef' : '#FFFFFF',
+            backgroundColor: disabled ? colors.ligthGray : colors.white,
             borderRadius: 2,
           }}
         >
@@ -109,16 +114,16 @@ const SelectCustom = ({
               className="fontPRegular"
               sx={{
                 '&: hover': {
-                  backgroundColor: '#3e99ff',
-                  color: '#fff',
+                  backgroundColor: colors.general,
+                  color: colors.white,
                 },
                 '&.Mui-selected': {
-                  backgroundColor: '#64AFFF',
-                  color: '#fff',
+                  backgroundColor: colors.primary,
+                  color: colors.white,
                 },
                 '&.Mui-selected:hover': {
-                  backgroundColor: '#3e99ff',
-                  color: '#fff',
+                  backgroundColor: colors.general,
+                  color: colors.white,
                 },
               }}
             >
@@ -132,8 +137,7 @@ const SelectCustom = ({
       </FormControl>
       <TextCustom
         text={msgError}
-        style={{ color: 'red' }}
-        className="text-xs ml-1 mr-1 fontPRegular"
+        className="text-xs ml-1 mr-1 fontPRegular text-red"
       />
     </div>
   );
