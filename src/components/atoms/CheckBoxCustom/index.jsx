@@ -1,13 +1,17 @@
 import React from 'react';
+
+// Components
 import { Checkbox } from '@mui/material';
+
+// Core
+import { renderColor } from '../../../core/utils';
 
 const CheckBoxCustom = ({
   value = false,
   setValue = () => null,
   disabled = false,
   size = undefined,
-  color = undefined,
-  customColor = '#0078FF',
+  typeColor = '',
   fontSize = null,
 }) => {
   const handleChange = () => {
@@ -21,13 +25,12 @@ const CheckBoxCustom = ({
         onChange={handleChange}
         disabled={disabled}
         size={size}
-        color={color}
         sx={{
           '& .MuiSvgIcon-root': { fontSize },
           '&.Mui-checked': {
-            color: customColor,
+            color: renderColor(typeColor),
           },
-          color: customColor,
+          color: renderColor(typeColor),
           fontFamily: 'fontPRegular',
         }}
       />

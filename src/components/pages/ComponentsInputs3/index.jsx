@@ -47,14 +47,18 @@ const ComponentsInputs3 = () => {
         <div className="flex flex-row items-center gap-1">
           <CheckBoxCustom value />
           <CheckBoxCustom />
-          <CheckBoxCustom value color={'secondary'} />
-          <CheckBoxCustom color={'secondary'} />
-          <CheckBoxCustom value color={'success'} />
-          <CheckBoxCustom color={'success'} />
-          <CheckBoxCustom value color={'default'} />
-          <CheckBoxCustom color={'default'} />
-          <CheckBoxCustom value customColor={'#FFFF00'} />
-          <CheckBoxCustom customColor={'#FFFF00'} />
+          <CheckBoxCustom value typeColor="primary" />
+          <CheckBoxCustom typeColor="primary" />
+          <CheckBoxCustom value typeColor="secondary" />
+          <CheckBoxCustom typeColor="secondary" />
+          <CheckBoxCustom value typeColor="success" />
+          <CheckBoxCustom typeColor="success" />
+          <CheckBoxCustom value typeColor="danger" />
+          <CheckBoxCustom typeColor="danger" />
+          <CheckBoxCustom value typeColor="warning" />
+          <CheckBoxCustom typeColor="warning" />
+          <CheckBoxCustom value typeColor="default" />
+          <CheckBoxCustom typeColor="default" />
         </div>
         <Divider />
       </div>
