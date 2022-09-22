@@ -59,6 +59,11 @@ const SideMenu = ({ onChange = () => null }) => {
     onChange();
   };
 
+  const handleComponentsInputs2 = () => {
+    navigate('/dashboard/componentsInputs2');
+    onChange();
+  };
+
   return (
     <div className="flex flex-col h-full p-4">
       <div className="flex justify-center items-center pt-5 pb-4 text-white">
@@ -105,6 +110,14 @@ const SideMenu = ({ onChange = () => null }) => {
                 icon={<ExtensionIcon className="text-white" />}
                 isSelected={
                   location.pathname === '/dashboard/componentsInputs1'
+                }
+              />
+              <DrawerItem
+                text={'Inputs 2'}
+                onClick={handleComponentsInputs2}
+                icon={<ExtensionIcon className="text-white" />}
+                isSelected={
+                  location.pathname === '/dashboard/componentsInputs2'
                 }
               />
             </List>
