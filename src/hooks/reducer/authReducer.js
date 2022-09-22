@@ -1,4 +1,4 @@
-import { authTypes } from '../../common/types';
+import { typesActionsAuth } from '../../common/types';
 
 const initialState = {
   isLogin: false,
@@ -6,13 +6,13 @@ const initialState = {
 
 const authReducer = (state = initialState, action) => {
   switch (action.type) {
-    case authTypes.login:
+    case typesActionsAuth.authLogin:
       const newState = {
         ...state,
         isLogin: true,
       };
       return newState;
-    case authTypes.logout:
+    case typesActionsAuth.authLogout:
       return initialState;
     default:
       return state;

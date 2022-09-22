@@ -9,7 +9,7 @@ import { Collapse, List } from '@mui/material';
 import { DrawerItem } from '../../atoms';
 
 // Const
-import { authTypes } from '../../../common/types';
+import { typesActionsAuth } from '../../../common/types';
 
 // Assets
 import { ReactComponent as HomeIcon } from '../../../assets/icons/HomeIcon.svg';
@@ -40,7 +40,7 @@ const SideMenu = ({ onChange = () => null }) => {
   };
 
   const handleLogout = () => {
-    dispatchAuth({ type: authTypes.logout });
+    dispatchAuth({ type: typesActionsAuth.authLogout });
     onChange();
   };
 
@@ -56,6 +56,11 @@ const SideMenu = ({ onChange = () => null }) => {
 
   const handleComponentsInputs1 = () => {
     navigate('/dashboard/componentsInputs1');
+    onChange();
+  };
+
+  const handleComponentsInputs2 = () => {
+    navigate('/dashboard/componentsInputs2');
     onChange();
   };
 
@@ -105,6 +110,14 @@ const SideMenu = ({ onChange = () => null }) => {
                 icon={<ExtensionIcon className="text-white" />}
                 isSelected={
                   location.pathname === '/dashboard/componentsInputs1'
+                }
+              />
+              <DrawerItem
+                text={'Inputs 2'}
+                onClick={handleComponentsInputs2}
+                icon={<ExtensionIcon className="text-white" />}
+                isSelected={
+                  location.pathname === '/dashboard/componentsInputs2'
                 }
               />
             </List>

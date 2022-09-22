@@ -4,6 +4,12 @@ import React, { memo } from 'react';
 import { InputAdornment, TextField } from '@mui/material';
 import { TextCustom, IconButtonCustom } from '../';
 
+// Core
+import {
+  validTextInput,
+  validInputInitialNumbers,
+} from '../../../core/validations';
+
 // Styles
 import { colors } from '../../styles/theme';
 
@@ -13,8 +19,11 @@ const TextInputCustom = ({
   name = '',
   value = '',
   setValue = () => null,
+  onBlur = () => null,
   placeholder = '',
   type = 'text',
+  typesValidation = '',
+  validInitNumbers = [],
   maxLength = null,
   className = '',
   iconStart = null,
@@ -30,7 +39,15 @@ const TextInputCustom = ({
 }) => {
   const handleOnChange = e => {
     const inputValue = e.target.value;
-    setValue(inputValue);
+    let isValid = true;
+    if (validInitNumbers.length) {
+      isValid = validInputInitialNumbers(inputValue, validInitNumbers);
+    } else {
+      isValid = validTextInput(inputValue, typesValidation);
+    }
+    if (isValid || inputValue === '' || !inputValue) {
+      setValue(inputValue);
+    }
   };
 
   const renderIcon = icon => {
@@ -42,7 +59,7 @@ const TextInputCustom = ({
           typeColor={iconTypeColor}
         />
       ) : (
-        <InputAdornment>{icon}</InputAdornment>
+        <InputAdornment position="start">{icon}</InputAdornment>
       );
     } else {
       return null;
@@ -55,6 +72,7 @@ const TextInputCustom = ({
         label={name}
         value={value}
         onChange={handleOnChange}
+        onBlur={onBlur}
         variant="outlined"
         size="large"
         multiline={multiline}
