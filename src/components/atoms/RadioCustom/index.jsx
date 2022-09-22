@@ -19,21 +19,19 @@ const RadioCustom = ({
   };
 
   return (
-    <div>
-      <Radio
-        checked={value}
-        onChange={handleChange}
-        disabled={disabled}
-        size={size}
-        sx={{
-          '& .MuiSvgIcon-root': { fontSize },
-          '&.Mui-checked': {
-            color: renderColor(typeColor),
-          },
+    <Radio
+      checked={value}
+      onChange={handleChange}
+      disabled={disabled}
+      size={size}
+      sx={{
+        '& .MuiSvgIcon-root': { fontSize },
+        '&.Mui-checked': {
           color: renderColor(typeColor),
-        }}
-      />
-    </div>
+        },
+        color: renderColor(typeColor),
+      }}
+    />
   );
 };
 

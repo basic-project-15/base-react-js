@@ -19,21 +19,19 @@ const CheckBoxCustom = ({
   };
 
   return (
-    <div>
-      <Checkbox
-        checked={value}
-        onChange={handleChange}
-        disabled={disabled}
-        size={size}
-        sx={{
-          '& .MuiSvgIcon-root': { fontSize },
-          '&.Mui-checked': {
-            color: renderColor(typeColor),
-          },
+    <Checkbox
+      checked={value}
+      onChange={handleChange}
+      disabled={disabled}
+      size={size}
+      sx={{
+        '& .MuiSvgIcon-root': { fontSize },
+        '&.Mui-checked': {
           color: renderColor(typeColor),
-        }}
-      />
-    </div>
+        },
+        color: renderColor(typeColor),
+      }}
+    />
   );
 };
 

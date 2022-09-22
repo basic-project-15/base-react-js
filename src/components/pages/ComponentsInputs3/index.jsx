@@ -5,6 +5,7 @@ import { Divider } from '@mui/material';
 import {
   CheckBoxCustom,
   ControlLabelCustom,
+  RadioButtonsCustom,
   RadioCustom,
   TextCustom,
 } from '../../atoms';
@@ -18,6 +19,19 @@ const ComponentsInputs3 = () => {
   const [radio2, setRadio2] = useState(true);
   const [radio3, setRadio3] = useState(false);
   const [radio4, setRadio4] = useState(true);
+  const [genero, setGenero] = useState('');
+  const [tipoIdentidad, setTipoIdentidad] = useState('');
+
+  const constGeneros = [
+    { id: 'F', label: 'Hombre' },
+    { id: 'M', label: 'Mujer' },
+    { id: 'T', label: 'Otro' },
+  ];
+
+  const constTiposIdentidad = [
+    { id: 'indentidad', label: 'Identidad Nacional' },
+    { id: 'pasaporte', label: 'Pasaporte' },
+  ];
 
   return (
     <div className="pb-4 flex flex-col">
@@ -143,6 +157,28 @@ const ComponentsInputs3 = () => {
           <ControlLabelCustom name={'End'} align="end">
             <RadioCustom value />
           </ControlLabelCustom>
+        </div>
+        <Divider />
+      </div>
+      {/* Etiquetas */}
+      <div className="px-4 pt-4">
+        <TextCustom text="Grupo de Radio Botones" className="text-3xl" />
+        <Divider />
+        <div className="flex flex-col gap-1">
+          <RadioButtonsCustom
+            name="Elija su genero"
+            options={constGeneros}
+            value={genero}
+            setValue={setGenero}
+            className="mb-3"
+          />
+          <RadioButtonsCustom
+            name="Elija su tipo de identidad"
+            options={constTiposIdentidad}
+            value={tipoIdentidad}
+            setValue={setTipoIdentidad}
+            isRow
+          />
         </div>
         <Divider />
       </div>

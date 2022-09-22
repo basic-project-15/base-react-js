@@ -9,15 +9,13 @@ const ControlLabelCustom = ({
   clase = '',
 }) => {
   return (
-    <div>
-      <FormControlLabel
-        value={value}
-        control={children}
-        label={name}
-        labelPlacement={align}
-        className={clase}
-      />
-    </div>
+    <FormControlLabel
+      value={value}
+      control={children}
+      label={name}
+      labelPlacement={align}
+      className={clase}
+    />
   );
 };
 
