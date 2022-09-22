@@ -8,6 +8,7 @@ import {
   ComponentsInputs2,
   ComponentsInputs3,
   ComponentsInputs4,
+  ComponentsLoader,
   ComponentsText,
   Configuration,
   Home,
@@ -26,6 +27,7 @@ export const DashboardRouter = () => {
         <Route path="/componentsInputs2" element={<ComponentsInputs2 />} />
         <Route path="/componentsInputs3" element={<ComponentsInputs3 />} />
         <Route path="/componentsInputs4" element={<ComponentsInputs4 />} />
+        <Route path="/componentsLoader" element={<ComponentsLoader />} />
         <Route path="/componentsText" element={<ComponentsText />} />
         <Route path="*" element={<Navigate to="/page-error" replace />} />
       </Routes>
