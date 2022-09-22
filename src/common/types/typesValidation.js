@@ -5,5 +5,5 @@ export const typesValidation = {
   onlyAlphanumeric: 'onlyLaphanumeric',
   onlyAlphanumericExtend: 'onlyLaphanumericExtend',
   validateEmail: 'validateEmail',
-  validateDomainEmail: 'validateDomainEmail',
+  validateEmailDomain: 'validateEmailDomain',
 };

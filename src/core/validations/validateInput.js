@@ -8,18 +8,17 @@ const {
   regexAlphanumeric,
   regexAlphanumericExtend,
   regexValidateEmail,
-  regexValidateDomainEmail,
+  regexValidateEmailDomain,
 } = typeRegex;
 
 const {
-  none,
   onlyNumber,
   onlyLetters,
   onlyLettersExtend,
   onlyAlphanumeric,
   onlyAlphanumericExtend,
   validateEmail,
-  validateDomainEmail,
+  validateEmailDomain,
 } = typesValidation;
 
 export const validTextInput = (value = '', type = '') => {
@@ -53,8 +52,8 @@ export const validInputEmail = (value, type) => {
     case validateEmail:
       isValid = regexValidateEmail.test(value) ? true : false;
       break;
-    case validateDomainEmail:
-      isValid = regexValidateDomainEmail.test(value) ? true : false;
+    case validateEmailDomain:
+      isValid = regexValidateEmailDomain.test(value) ? true : false;
       break;
     default:
       isValid = true;
@@ -64,11 +63,12 @@ export const validInputEmail = (value, type) => {
 };
 
 export const validInputInitialNumbers = (value = '', initialNumbers = []) => {
-  let isValid = false;
-  if (initialNumbers.length) {
+  let isValid = true;
+  isValid = regexOnlyNumber.test(value) ? true : false;
+  if (isValid) {
     let isValidNumber = false;
     initialNumbers.map(number => {
-      if (number === value.charAt(0)) {
+      if (number === parseFloat(value.charAt(0))) {
         isValidNumber = true;
       }
       return null;
