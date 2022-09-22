@@ -4,14 +4,11 @@ import React, { useState } from 'react';
 import { Divider } from '@mui/material';
 import { SelectCustom, TextCustom } from '../../atoms';
 
+// Const
+import { constGeneros } from '../../../common/constants';
+
 const ComponentsInputs4 = () => {
   const [genero, setGenero] = useState('');
-
-  const constGeneros = [
-    { id: 'F', label: 'Hombre' },
-    { id: 'M', label: 'Mujer' },
-    { id: 'T', label: 'Otro' },
-  ];
 
   return (
     <div className="pb-4 flex flex-col">
@@ -27,7 +24,6 @@ const ComponentsInputs4 = () => {
             options={constGeneros}
             value={genero}
             setValue={setGenero}
-            className="mb-2"
             required
           />
         </div>

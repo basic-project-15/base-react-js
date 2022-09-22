@@ -1,67 +1,32 @@
 import React, { memo } from 'react';
 
 // Components
-import { FormControl, InputLabel, MenuItem, Select } from '@mui/material';
-import { CheckBoxCustom, TextCustom } from '../';
+import { InputLabel, Select } from '@mui/material';
+import { FormControlCustom, MenuItemCustom, TextCustom } from '../';
 
 // Core
 import { colors } from '../../styles/theme';
 
 const SelectCustom = ({
-  className = '',
-  disabled = false,
-  multiple = false,
-  required = false,
-  inputClassName = '',
-  name = '',
+  name = null,
   options = [],
-  setValue = () => null,
-  size = 'large',
   value = '',
+  setValue = () => null,
   msgError = '',
   success = false,
+  disabled = false,
+  required = false,
   fontSize = 18,
+  className = '',
 }) => {
   const handleChange = event => {
     const inputValue = event.target.value;
     setValue(inputValue);
   };
 
-  const renderValue = selected => {
-    if (typeof selected === 'string' || typeof selected === 'number') {
-      const optionSelected = options.find(option => option?.id === selected);
-      return optionSelected?.label;
-    } else {
-      const result = selected.map(select => {
-        const optionSelected = options.find(option => option?.id === select);
-        return optionSelected?.label;
-      });
-      return result.join(', ');
-    }
-  };
-
   return (
     <div className={`flex flex-col ${className}`}>
-      <FormControl
-        size="large"
-        required={required}
-        fullWidth
-        sx={{
-          marginTop: 1,
-          '& .MuiInputLabel-asterisk': {
-            display: 'none',
-          },
-          '& .MuiInputLabel-shrink': {
-            marginLeft: 2,
-            color: colors.black,
-            fontWeight: '600',
-            '& .MuiInputLabel-asterisk': {
-              color: colors.red,
-              display: 'inline',
-            },
-          },
-        }}
-      >
+      <FormControlCustom required={required}>
         <InputLabel id="demo-simple-select-label" style={{ fontSize }}>
           {name}
         </InputLabel>
@@ -70,17 +35,10 @@ const SelectCustom = ({
           label={name}
           value={value}
           onChange={handleChange}
-          className={`w-full ${inputClassName}`}
-          size={size}
-          multiple={multiple}
+          className="w-full"
+          size="large"
           disabled={disabled}
-          renderValue={renderValue}
           sx={{
-            '& svg': {
-              marginTop: -0.5,
-              width: 24,
-              height: 24,
-            },
             '& MuiPaper-root': {
               marginTop: 1,
             },
@@ -108,33 +66,12 @@ const SelectCustom = ({
           }}
         >
           {options.map((option, index) => (
-            <MenuItem
-              key={index}
-              value={option?.id}
-              className="fontPRegular"
-              sx={{
-                '&: hover': {
-                  backgroundColor: colors.general,
-                  color: colors.white,
-                },
-                '&.Mui-selected': {
-                  backgroundColor: colors.primary,
-                  color: colors.white,
-                },
-                '&.Mui-selected:hover': {
-                  backgroundColor: colors.general,
-                  color: colors.white,
-                },
-              }}
-            >
-              {multiple && (
-                <CheckBoxCustom value={value.indexOf(option?.id) > -1} />
-              )}
+            <MenuItemCustom key={index} value={option?.id}>
               {option?.label}
-            </MenuItem>
+            </MenuItemCustom>
           ))}
         </Select>
-      </FormControl>
+      </FormControlCustom>
       <TextCustom
         text={msgError}
         className="text-xs ml-1 mr-1 fontPRegular text-red"

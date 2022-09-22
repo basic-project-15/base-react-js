@@ -10,6 +10,9 @@ import {
   TextCustom,
 } from '../../atoms';
 
+// Const
+import { constGeneros, constTiposIdentidad } from '../../../common/constants';
+
 const ComponentsInputs3 = () => {
   const [check1, setCheck1] = useState(false);
   const [check2, setCheck2] = useState(true);
@@ -21,17 +24,6 @@ const ComponentsInputs3 = () => {
   const [radio4, setRadio4] = useState(true);
   const [genero, setGenero] = useState('');
   const [tipoIdentidad, setTipoIdentidad] = useState('');
-
-  const constGeneros = [
-    { id: 'F', label: 'Hombre' },
-    { id: 'M', label: 'Mujer' },
-    { id: 'T', label: 'Otro' },
-  ];
-
-  const constTiposIdentidad = [
-    { id: 'indentidad', label: 'Identidad Nacional' },
-    { id: 'pasaporte', label: 'Pasaporte' },
-  ];
 
   return (
     <div className="pb-4 flex flex-col">
