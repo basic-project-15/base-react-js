@@ -36,6 +36,7 @@ const TextInputCustom = ({
   multiline = false,
   required = false,
   success = false,
+  fontSize = 18,
 }) => {
   const handleOnChange = e => {
     const inputValue = e.target.value;
@@ -93,6 +94,7 @@ const TextInputCustom = ({
         sx={{
           '& legend': {
             marginLeft: 2,
+            fontSize: fontSize * 0.82,
           },
           '& .MuiInputBase-root': {
             '& fieldset': {
@@ -104,7 +106,7 @@ const TextInputCustom = ({
             '&.Mui-focused fieldset': {
               borderColor: primary,
               color: black,
-              fontSize: 18,
+              fontSize: fontSize,
             },
           },
           '& .MuiInputLabel-asterisk': {
@@ -113,7 +115,7 @@ const TextInputCustom = ({
           '& .MuiInputLabel-shrink': {
             marginLeft: 2,
             color: black,
-            fontSize: 18,
+            fontSize: fontSize,
             fontWeight: '600',
             '& .MuiInputLabel-asterisk': {
               color: red,

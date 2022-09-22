@@ -64,6 +64,16 @@ const SideMenu = ({ onChange = () => null }) => {
     onChange();
   };
 
+  const handleComponentsInputs3 = () => {
+    navigate('/dashboard/componentsInputs3');
+    onChange();
+  };
+
+  const handleComponentsInputs4 = () => {
+    navigate('/dashboard/componentsInputs4');
+    onChange();
+  };
+
   return (
     <div className="flex flex-col h-full p-4">
       <div className="flex justify-center items-center pt-5 pb-4 text-white">
@@ -118,6 +128,22 @@ const SideMenu = ({ onChange = () => null }) => {
                 icon={<ExtensionIcon className="text-white" />}
                 isSelected={
                   location.pathname === '/dashboard/componentsInputs2'
+                }
+              />
+              <DrawerItem
+                text={'Inputs 3'}
+                onClick={handleComponentsInputs3}
+                icon={<ExtensionIcon className="text-white" />}
+                isSelected={
+                  location.pathname === '/dashboard/componentsInputs3'
+                }
+              />
+              <DrawerItem
+                text={'Inputs 4'}
+                onClick={handleComponentsInputs4}
+                icon={<ExtensionIcon className="text-white" />}
+                isSelected={
+                  location.pathname === '/dashboard/componentsInputs4'
                 }
               />
             </List>
