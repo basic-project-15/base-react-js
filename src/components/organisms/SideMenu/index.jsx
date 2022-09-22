@@ -9,7 +9,7 @@ import { Collapse, List } from '@mui/material';
 import { DrawerItem } from '../../atoms';
 
 // Const
-import { authTypes } from '../../../common/types';
+import { typesActionsAuth } from '../../../common/types';
 
 // Assets
 import { ReactComponent as HomeIcon } from '../../../assets/icons/HomeIcon.svg';
@@ -40,7 +40,7 @@ const SideMenu = ({ onChange = () => null }) => {
   };
 
   const handleLogout = () => {
-    dispatchAuth({ type: authTypes.logout });
+    dispatchAuth({ type: typesActionsAuth.authLogout });
     onChange();
   };
 

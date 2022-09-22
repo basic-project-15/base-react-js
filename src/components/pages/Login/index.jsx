@@ -7,13 +7,13 @@ import { AuthContext } from '../../../hooks/context';
 import { Button } from '@mui/material';
 
 // Const
-import { authTypes } from '../../../common/types';
+import { typesActionsAuth } from '../../../common/types';
 
 const Login = () => {
   const { dispatchAuth } = useContext(AuthContext);
 
   const handleLogin = () => {
-    dispatchAuth({ type: authTypes.login });
+    dispatchAuth({ type: typesActionsAuth.authLogin });
   };
 
   return (
