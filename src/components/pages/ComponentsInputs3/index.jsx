@@ -7,6 +7,7 @@ import {
   ControlLabelCustom,
   RadioButtonsCustom,
   RadioCustom,
+  SwitchCustom,
   TextCustom,
 } from '../../atoms';
 
@@ -24,6 +25,10 @@ const ComponentsInputs3 = () => {
   const [radio4, setRadio4] = useState(true);
   const [genero, setGenero] = useState('');
   const [tipoIdentidad, setTipoIdentidad] = useState('');
+  const [switch1, setSwitch1] = useState(false);
+  const [switch2, setSwitch2] = useState(true);
+  const [switch3, setSwitch3] = useState(false);
+  const [switch4, setSwitch4] = useState(true);
 
   return (
     <div className="pb-4 flex flex-col">
@@ -129,6 +134,28 @@ const ComponentsInputs3 = () => {
         </div>
         <Divider />
       </div>
+      {/* Colores */}
+      <div className="px-4 pt-4">
+        <TextCustom text="Colores" className="text-3xl" />
+        <Divider />
+        <div className="flex flex-row items-center gap-1">
+          <RadioCustom value />
+          <RadioCustom />
+          <RadioCustom value typeColor="primary" />
+          <RadioCustom typeColor="primary" />
+          <RadioCustom value typeColor="secondary" />
+          <RadioCustom typeColor="secondary" />
+          <RadioCustom value typeColor="success" />
+          <RadioCustom typeColor="success" />
+          <RadioCustom value typeColor="danger" />
+          <RadioCustom typeColor="danger" />
+          <RadioCustom value typeColor="warning" />
+          <RadioCustom typeColor="warning" />
+          <RadioCustom value typeColor="default" />
+          <RadioCustom typeColor="default" />
+        </div>
+        <Divider />
+      </div>
       {/* Etiquetas */}
       <div className="px-4 pt-4">
         <TextCustom text="Etiquetas" className="text-3xl" />
@@ -171,6 +198,89 @@ const ComponentsInputs3 = () => {
             setValue={setTipoIdentidad}
             isRow
           />
+        </div>
+        <Divider />
+      </div>
+      <TextCustom text="Switchs" className="text-6xl mt-4" />
+      <Divider />
+      {/* Estados */}
+      <div className="px-4 pt-4">
+        <TextCustom text="Estados" className="text-3xl" />
+        <Divider />
+        <div className="flex flex-row gap-1">
+          <SwitchCustom value={switch1} setValue={setSwitch1} />
+          <SwitchCustom value={switch2} setValue={setSwitch2} />
+          <SwitchCustom value={switch3} setValue={setSwitch3} disabled />
+          <SwitchCustom value={switch4} setValue={setSwitch4} disabled />
+        </div>
+        <Divider />
+      </div>
+      {/* Tamaños */}
+      <div className="px-4 pt-4">
+        <TextCustom text="Tamaños" className="text-3xl" />
+        <Divider />
+        <div className="flex flex-row items-center gap-1">
+          <SwitchCustom value size="small" />
+          <SwitchCustom value />
+        </div>
+        <Divider />
+      </div>
+      {/* Colores */}
+      <div className="px-4 pt-4">
+        <TextCustom text="Colores" className="text-3xl" />
+        <Divider />
+        <div className="flex flex-row items-center gap-1">
+          <div className="flex flex-col">
+            <SwitchCustom value />
+            <SwitchCustom />
+          </div>
+          <div className="flex flex-col">
+            <SwitchCustom value typeColor="primary" />
+            <SwitchCustom typeColor="primary" />
+          </div>
+          <div className="flex flex-col">
+            <SwitchCustom value typeColor="secondary" />
+            <SwitchCustom typeColor="secondary" />
+          </div>
+          <div className="flex flex-col">
+            <SwitchCustom value typeColor="success" />
+            <SwitchCustom typeColor="success" />
+          </div>
+          <div className="flex flex-col">
+            <SwitchCustom value typeColor="danger" />
+            <SwitchCustom typeColor="danger" />
+          </div>
+          <div className="flex flex-col">
+            <SwitchCustom value typeColor="warning" />
+            <SwitchCustom typeColor="warning" />
+          </div>
+          <div className="flex flex-col">
+            <SwitchCustom value typeColor="default" />
+            <SwitchCustom typeColor="default" />
+          </div>
+        </div>
+        <Divider />
+      </div>
+      {/* Etiquetas */}
+      <div className="px-4 pt-4">
+        <TextCustom text="Etiquetas" className="text-3xl" />
+        <Divider />
+        <div className="flex flex-row items-center gap-1">
+          <ControlLabelCustom name={'Default'}>
+            <SwitchCustom value />
+          </ControlLabelCustom>
+          <ControlLabelCustom name={'Top'} align="top">
+            <SwitchCustom value />
+          </ControlLabelCustom>
+          <ControlLabelCustom name={'Start'} align="start">
+            <SwitchCustom value />
+          </ControlLabelCustom>
+          <ControlLabelCustom name={'Bottom'} align="bottom">
+            <SwitchCustom value />
+          </ControlLabelCustom>
+          <ControlLabelCustom name={'End'} align="end">
+            <SwitchCustom value />
+          </ControlLabelCustom>
         </div>
         <Divider />
       </div>
