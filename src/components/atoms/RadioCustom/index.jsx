@@ -1,12 +1,12 @@
 import React from 'react';
 
 // Components
-import { Checkbox } from '@mui/material';
+import { Radio } from '@mui/material';
 
 // Core
 import { renderColor } from '../../../core/utils';
 
-const CheckBoxCustom = ({
+const RadioCustom = ({
   value = false,
   setValue = () => null,
   disabled = false,
@@ -20,7 +20,7 @@ const CheckBoxCustom = ({
 
   return (
     <div>
-      <Checkbox
+      <Radio
         checked={value}
         onChange={handleChange}
         disabled={disabled}
@@ -37,4 +37,4 @@ const CheckBoxCustom = ({
   );
 };
 
-export default CheckBoxCustom;
+export default RadioCustom;
