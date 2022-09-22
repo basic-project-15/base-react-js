@@ -22,7 +22,7 @@ const {
   validateDomainEmail,
 } = typesValidation;
 
-export const validTextInput = (value, type) => {
+export const validTextInput = (value = '', type = '') => {
   let isValid = true;
   switch (type) {
     case onlyNumber:
@@ -63,7 +63,7 @@ export const validInputEmail = (value, type) => {
   return isValid;
 };
 
-export const validInputInitialNumbers = (initialNumbers = []) => {
+export const validInputInitialNumbers = (value = '', initialNumbers = []) => {
   let isValid = false;
   if (initialNumbers.length) {
     let isValidNumber = false;

@@ -4,6 +4,9 @@ import React, { memo } from 'react';
 import { InputAdornment, TextField } from '@mui/material';
 import { TextCustom, IconButtonCustom } from '../';
 
+// Const
+import { validTextInput } from '../../../core/validations';
+
 // Styles
 import { colors } from '../../styles/theme';
 
@@ -15,6 +18,7 @@ const TextInputCustom = ({
   setValue = () => null,
   placeholder = '',
   type = 'text',
+  typesValidation = '',
   maxLength = null,
   className = '',
   iconStart = null,
@@ -30,7 +34,10 @@ const TextInputCustom = ({
 }) => {
   const handleOnChange = e => {
     const inputValue = e.target.value;
-    setValue(inputValue);
+    const isValid = validTextInput(inputValue, typesValidation);
+    if (isValid || inputValue === '' || !inputValue) {
+      setValue(inputValue);
+    }
   };
 
   const renderIcon = icon => {
@@ -42,7 +49,7 @@ const TextInputCustom = ({
           typeColor={iconTypeColor}
         />
       ) : (
-        <InputAdornment>{icon}</InputAdornment>
+        <InputAdornment position="start">{icon}</InputAdornment>
       );
     } else {
       return null;
