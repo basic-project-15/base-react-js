@@ -20,7 +20,6 @@ const DatePickerCustom = ({
   disabled = false,
   minDate = undefined,
   maxDate = undefined,
-  size = 'large',
   msgError = '',
   success = false,
   className = '',
@@ -44,7 +43,7 @@ const DatePickerCustom = ({
           renderInput={params => (
             <TextField
               label={name}
-              size={size}
+              size="large"
               required={required}
               style={{ backgroundColor: disabled ? '#e9ecef' : '#FFFFFF' }}
               sx={{

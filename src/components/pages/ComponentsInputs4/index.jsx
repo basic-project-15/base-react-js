@@ -8,8 +8,18 @@ import { DatePickerCustom, SelectCustom, TextCustom } from '../../atoms';
 import { constGeneros } from '../../../common/constants';
 
 const ComponentsInputs4 = () => {
-  const [genero, setGenero] = useState('');
-  const [fechaNacimiento, setFechaNacimiento] = useState(null);
+  const [genero1, setGenero1] = useState('');
+  const [genero2, setGenero2] = useState('');
+  const [genero3, setGenero3] = useState('');
+  const [genero4, setGenero4] = useState('');
+  const [genero5, setGenero5] = useState('');
+  const [fecha1, setFecha1] = useState(null);
+  const [fecha2, setFecha2] = useState(null);
+  const [fecha3, setFecha3] = useState(null);
+  const [fecha4, setFecha4] = useState(null);
+  const [fecha5, setFecha5] = useState(null);
+  const [fecha6, setFecha6] = useState(null);
+  const [fecha7, setFecha7] = useState(null);
 
   return (
     <div className="pb-4 flex flex-col">
@@ -21,11 +31,38 @@ const ComponentsInputs4 = () => {
         <Divider />
         <div className="flex flex-col gap-1">
           <SelectCustom
-            name="Generos"
+            name="Por defecto"
             options={constGeneros}
-            value={genero}
-            setValue={setGenero}
+            value={genero1}
+            setValue={setGenero1}
+          />
+          <SelectCustom
+            name="Requerido"
+            options={constGeneros}
+            value={genero2}
+            setValue={setGenero2}
             required
+          />
+          <SelectCustom
+            name="Deshabilitado"
+            options={constGeneros}
+            value={genero3}
+            setValue={setGenero3}
+            disabled
+          />
+          <SelectCustom
+            name="Error"
+            options={constGeneros}
+            value={genero4}
+            setValue={setGenero4}
+            msgError="Selección incorrecta"
+          />
+          <SelectCustom
+            name="Exitoso"
+            options={constGeneros}
+            value={genero5}
+            setValue={setGenero5}
+            success
           />
         </div>
         <Divider />
@@ -38,10 +75,53 @@ const ComponentsInputs4 = () => {
         <Divider />
         <div className="flex flex-col gap-1">
           <DatePickerCustom
-            name="Fecha de Nacimeinto"
-            value={fechaNacimiento}
-            setValue={setFechaNacimiento}
+            name="Por defecto"
+            value={fecha1}
+            setValue={setFecha1}
+          />
+          <DatePickerCustom
+            name="Requerido"
+            value={fecha2}
+            setValue={setFecha2}
             required
+          />
+          <DatePickerCustom
+            name="Deshabilitado"
+            value={fecha3}
+            setValue={setFecha3}
+            disabled
+          />
+          <DatePickerCustom
+            name="Error"
+            value={fecha4}
+            setValue={setFecha4}
+            msgError="Fecha no válida"
+          />
+          <DatePickerCustom
+            name="Exitoso"
+            value={fecha5}
+            setValue={setFecha5}
+            success
+          />
+        </div>
+        <Divider />
+      </div>
+      {/* Validaciones */}
+      <div className="px-4 pt-4">
+        <TextCustom text="Validaciones" className="text-3xl" />
+        <Divider />
+        <div className="flex flex-col gap-1">
+          <DatePickerCustom
+            name="Fecha mínima hoy"
+            value={fecha6}
+            setValue={setFecha6}
+            minDate={new Date()}
+          />
+          <DatePickerCustom
+            name="Fecha máxima hoy"
+            value={fecha7}
+            setValue={setFecha7}
+            maxDate={new Date()}
           />
         </div>
         <Divider />
