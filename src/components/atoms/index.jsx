@@ -5,6 +5,7 @@ export { default as DatePickerCustom } from './DatePickerCustom';
 export { default as DrawerItem } from './DrawerItem';
 export { default as FormControlCustom } from './FormControlCustom';
 export { default as IconButtonCustom } from './IconButtonCustom';
+export { default as Loader } from './Loader';
 export { default as MenuItemCustom } from './MenuItemCustom';
 export { default as RadioCustom } from './RadioCustom';
 export { default as RadioButtonsCustom } from './RadioButtonsCustom';
