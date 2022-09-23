@@ -115,6 +115,39 @@ const ComponentsLoader = () => {
         </div>
         <Divider />
       </div>
+      {/* Modos */}
+      <div className="px-4 pt-4">
+        <TextCustom text="Modos" className="text-3xl" />
+        <Divider />
+        <div className="flex flex-col gap-1">
+          <TextCustom text="Modo bloque por defecto:" />
+          <div className="flex flex-col w-full h-40">
+            <TextCustom text="Texto de prueba" />
+            <Loader />
+            <TextCustom text="Texto de prueba" />
+            <TextCustom text="Texto de prueba" />
+            <TextCustom text="Texto de prueba" />
+          </div>
+          <TextCustom text="Modo modal:" />
+          <div className="flex flex-col w-full h-40 relative">
+            <TextCustom text="Texto de prueba" />
+            <TextCustom text="Texto de prueba" />
+            <TextCustom text="Texto de prueba" />
+            <TextCustom text="Texto de prueba" />
+            <TextCustom text="Texto de prueba" />
+            <TextCustom text="Texto de prueba" />
+            <Loader mode="modal" />
+          </div>
+          <div>
+            <TextCustom text="Nota: " className="font-bold" />
+            <TextCustom
+              text="El modo modal del loader se superpone sobre el div con posición relativa. Se establece en el centro del div y lo cubre con un fondo opaco."
+              className="italic"
+            />
+          </div>
+        </div>
+        <Divider />
+      </div>
       {/* Eventos */}
       <div className="px-4 pt-4">
         <TextCustom text="Eventos" className="text-3xl" />

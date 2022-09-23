@@ -6,12 +6,16 @@ import DeliveryAnimation from '../../../assets/animations/DeliveryAnimation.json
 import LoaderCircleAnimation from '../../../assets/animations/LoaderCircleAnimation.json';
 import LocationAnimation from '../../../assets/animations/LocationAnimation.json';
 
+//Styles
+import './styles.css';
+
 const Loader = ({
   typeAnimation = '',
   loop = true,
   size = '3rem',
-  pause = false,
+  mode = 'block',
   speed = 1,
+  pause = false,
   setPause = () => null,
   play = true,
   setPlay = () => null,
@@ -62,7 +66,7 @@ const Loader = ({
   };
 
   return (
-    <div>
+    <div className={mode === 'modal' ? 'loader-modal' : ''}>
       <Lottie
         lottieRef={lottieRef}
         animationData={renderAnimationData()}
