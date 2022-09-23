@@ -59,9 +59,17 @@ const AlertCustom = ({
             onClick={handleClose}
           />
         }
-        className="flex items-center"
+        className="flex items-center py-0"
       >
-        <AlertTitle onClick={handleShowMore} className="text-lg cursor-pointer">
+        <AlertTitle
+          onClick={handleShowMore}
+          className="text-lg cursor-pointer"
+          sx={{
+            '&.MuiTypography-root': {
+              margin: 0,
+            },
+          }}
+        >
           {title}
         </AlertTitle>
         <Collapse in={showMore}>{description}</Collapse>
