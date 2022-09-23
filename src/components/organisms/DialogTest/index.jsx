@@ -8,6 +8,7 @@ import {
   CheckBoxCustom,
   ControlLabelCustom,
   DatePickerCustom,
+  Loader,
   RadioButtonsCustom,
   SelectCustom,
   TextCustom,
@@ -75,65 +76,68 @@ const DialogTest = ({ open = false, setOpen = () => null }) => {
       disabledIconClose
     >
       <DialogContent style={{ width: 500 }}>
-        <TextCustom text="Ingrese sus datos" variant="h5" />
-        <TextInputCustom
-          name="Nombres"
-          value={nombres}
-          setValue={setNombres}
-          className="mb-2"
-        />
-        <TextInputCustom
-          name="Apellidos"
-          value={apellidos}
-          setValue={setApellidos}
-          className="mb-2"
-        />
-        <TextInputCustom
-          name="Correo"
-          value={correo}
-          setValue={setCorreo}
-          className="mb-2"
-          type="email"
-        />
-        <TextInputCustom
-          name="Contraseña"
-          value={contrasena}
-          setValue={setContrasena}
-          className="mb-2"
-          type="password"
-        />
-        <TextInputCustom
-          name="Confirmar Contraseña"
-          value={confirmContrasena}
-          setValue={setConfirmContrasena}
-          className="mb-2"
-          type="password"
-        />
-        <Divider />
-        <DatePickerCustom
-          name="Fecha Nacimiento"
-          value={fechaNaicmiento}
-          setValue={setFechaNaicmiento}
-          maxDate={maxDate}
-        />
-        <RadioButtonsCustom
-          name="Genero"
-          options={constGeneros}
-          value={genero}
-          setValue={setGenero}
-          className="mb-3"
-          isRow
-        />
-        <SelectCustom
-          name="Estado Civil"
-          options={constEstadosCiviles}
-          value={estadoCivil}
-          setValue={setEstadoCivil}
-          className="mb-2"
-        />
-        <ControlLabelCustom name={'Estoy de acuerdo con los terminos'}>
-          <CheckBoxCustom value={isConfirm} setValue={setIsConfirm} />
-        </ControlLabelCustom>
+        <div className="flex flex-col relative">
+          <TextCustom text="Ingrese sus datos" variant="h5" />
+          <TextInputCustom
+            name="Nombres"
+            value={nombres}
+            setValue={setNombres}
+            className="mb-2"
+          />
+          <TextInputCustom
+            name="Apellidos"
+            value={apellidos}
+            setValue={setApellidos}
+            className="mb-2"
+          />
+          <TextInputCustom
+            name="Correo"
+            value={correo}
+            setValue={setCorreo}
+            className="mb-2"
+            type="email"
+          />
+          <TextInputCustom
+            name="Contraseña"
+            value={contrasena}
+            setValue={setContrasena}
+            className="mb-2"
+            type="password"
+          />
+          <TextInputCustom
+            name="Confirmar Contraseña"
+            value={confirmContrasena}
+            setValue={setConfirmContrasena}
+            className="mb-2"
+            type="password"
+          />
+          <Divider />
+          <DatePickerCustom
+            name="Fecha Nacimiento"
+            value={fechaNaicmiento}
+            setValue={setFechaNaicmiento}
+            maxDate={maxDate}
+          />
+          <RadioButtonsCustom
+            name="Genero"
+            options={constGeneros}
+            value={genero}
+            setValue={setGenero}
+            className="mb-3"
+            isRow
+          />
+          <SelectCustom
+            name="Estado Civil"
+            options={constEstadosCiviles}
+            value={estadoCivil}
+            setValue={setEstadoCivil}
+            className="mb-2"
+          />
+          <ControlLabelCustom name={'Estoy de acuerdo con los terminos'}>
+            <CheckBoxCustom value={isConfirm} setValue={setIsConfirm} />
+          </ControlLabelCustom>
+          {loader && <Loader mode="modal" />}
+        </div>
       </DialogContent>
       <DialogActions>
         <ButtonCustom
