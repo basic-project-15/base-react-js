@@ -23,25 +23,21 @@ const DialogCustom = ({
     return false;
   };
   return (
-    <div>
-      {open && (
-        <Dialog
-          open={open}
-          aria-labelledby="alert-dialog-title"
-          aria-describedby="alert-dialog-description"
-          onClose={() => !disabledDismiss && handleClose()}
-          maxWidth={false}
-        >
-          <DialogTitleCustom
-            onClose={handleClose}
-            disabledIconClose={disabledIconClose}
-          >
-            <TextCustom text={title} className="fontPMedium py-2" />
-          </DialogTitleCustom>
-          {children}
-        </Dialog>
-      )}
-    </div>
+    <Dialog
+      open={open}
+      aria-labelledby="alert-dialog-title"
+      aria-describedby="alert-dialog-description"
+      onClose={() => !disabledDismiss && handleClose()}
+      maxWidth={false}
+    >
+      <DialogTitleCustom
+        onClose={handleClose}
+        disabledIconClose={disabledIconClose}
+      >
+        <TextCustom text={title} className="fontPMedium py-2" />
+      </DialogTitleCustom>
+      {children}
+    </Dialog>
   );
 };
 

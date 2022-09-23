@@ -9,6 +9,7 @@ import {
   TextCustom,
 } from '../../atoms';
 import { DialogCustom } from '../../templates';
+import { DialogTest } from '../../organisms';
 
 const ComponentsDialog = () => {
   const [show1, setShow1] = useState(false);
@@ -20,6 +21,7 @@ const ComponentsDialog = () => {
   const [check1, setCheck1] = useState(false);
   const [show7, setShow7] = useState(false);
   const [check2, setCheck2] = useState(false);
+  const [show8, setShow8] = useState(false);
 
   const handleDismiss7 = () => {
     setCheck2(false);
@@ -89,6 +91,21 @@ const ComponentsDialog = () => {
               text="Ventana modal con evento dismiss"
               className="mb-1"
               onClick={() => setShow7(true)}
+            />
+          </div>
+        </div>
+        <Divider />
+      </div>
+      {/* Ventana Modal Avanzada */}
+      <div className="px-4 pt-4">
+        <TextCustom text="Ventana Modal Avanzada" className="text-3xl" />
+        <Divider />
+        <div className="flex flex-col gap-2">
+          <div>
+            <ButtonCustom
+              text="Ventana modal con formulario"
+              className="mb-1"
+              onClick={() => setShow8(true)}
             />
           </div>
         </div>
@@ -236,6 +253,8 @@ const ComponentsDialog = () => {
           </DialogActions>
         </DialogCustom>
       </div>
+      {/* Ventanas modal avanzada */}
+      <DialogTest open={show8} setOpen={setShow8} />
     </div>
   );
 };
