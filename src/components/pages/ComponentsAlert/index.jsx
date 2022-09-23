@@ -21,9 +21,9 @@ const ComponentsAlert = () => {
     <div className="pb-4 flex flex-col">
       <TextCustom text="Alerts" className="text-6xl" />
       <Divider />
-      {/* Data */}
+      {/* Tipos de Alerts */}
       <div className="px-4 pt-4">
-        <TextCustom text="Data" className="text-3xl" />
+        <TextCustom text="Tipos de Alerts" className="text-3xl" />
         <Divider />
         <div className="flex flex-col gap-2">
           <AlertCustom
