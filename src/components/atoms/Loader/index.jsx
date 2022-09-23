@@ -1,14 +1,71 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import Lottie from 'lottie-react';
 
 // Assets
-import LoaderCircle from '../../../assets/animations/LoaderCircle.json';
+import DeliveryAnimation from '../../../assets/animations/DeliveryAnimation.json';
+import LoaderCircleAnimation from '../../../assets/animations/LoaderCircleAnimation.json';
+import LocationAnimation from '../../../assets/animations/LocationAnimation.json';
 
-const Loader = ({ loop = false, size = '3rem' }) => {
+const Loader = ({
+  typeAnimation = '',
+  loop = true,
+  size = '3rem',
+  pause = false,
+  speed = 1,
+  setPause = () => null,
+  play = true,
+  setPlay = () => null,
+  stop = false,
+  setStop = () => null,
+}) => {
+  const lottieRef = useRef();
+
+  useEffect(() => {
+    lottieRef.current.setSpeed(speed);
+  }, [speed]);
+
+  useEffect(() => {
+    if (pause) {
+      lottieRef.current.pause();
+      setPause(false);
+    }
+  }, [pause, setPause]);
+
+  useEffect(() => {
+    if (play) {
+      lottieRef.current.play();
+      setPlay(false);
+    }
+  }, [play, setPlay]);
+
+  useEffect(() => {
+    if (stop) {
+      lottieRef.current.stop();
+      setStop(false);
+    }
+  }, [stop, setStop]);
+
+  const renderAnimationData = () => {
+    let data;
+    switch (typeAnimation) {
+      case 'delivery':
+        data = DeliveryAnimation;
+        break;
+      case 'location':
+        data = LocationAnimation;
+        break;
+      default:
+        data = LoaderCircleAnimation;
+        break;
+    }
+    return data;
+  };
+
   return (
     <div>
       <Lottie
-        animationData={LoaderCircle}
+        lottieRef={lottieRef}
+        animationData={renderAnimationData()}
         loop={loop}
         style={{ width: size, height: size }}
       />
