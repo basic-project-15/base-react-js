@@ -80,6 +80,11 @@ const SideMenu = ({ onChange = () => null }) => {
     onChange();
   };
 
+  const handleComponentsAlert = () => {
+    navigate('/dashboard/componentsAlert');
+    onChange();
+  };
+
   return (
     <div className="flex flex-col h-full p-4">
       <div className="flex justify-center items-center pt-5 pb-4 text-white">
@@ -168,6 +173,12 @@ const SideMenu = ({ onChange = () => null }) => {
                 onClick={handleComponentsLoader}
                 icon={<ExtensionIcon className="text-white" />}
                 isSelected={location.pathname === '/dashboard/componentsLoader'}
+              />
+              <DrawerItem
+                text={'Alerts'}
+                onClick={handleComponentsAlert}
+                icon={<ExtensionIcon className="text-white" />}
+                isSelected={location.pathname === '/dashboard/componentsAlert'}
               />
             </List>
           </Collapse>

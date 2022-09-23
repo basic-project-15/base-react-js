@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 
 // Components
 import {
+  ComponentsAlert,
   ComponentsButton,
   ComponentsInputs1,
   ComponentsInputs2,
@@ -22,6 +23,7 @@ export const DashboardRouter = () => {
         <Route path="/" element={<Navigate to="/dashboard/home" />} />
         <Route path="/home" element={<Home />} />
         <Route path="/configuration" element={<Configuration />} />
+        <Route path="/componentsAlert" element={<ComponentsAlert />} />
         <Route path="/componentsButton" element={<ComponentsButton />} />
         <Route path="/componentsInputs1" element={<ComponentsInputs1 />} />
         <Route path="/componentsInputs2" element={<ComponentsInputs2 />} />
