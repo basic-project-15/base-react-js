@@ -85,6 +85,11 @@ const SideMenu = ({ onChange = () => null }) => {
     onChange();
   };
 
+  const handleComponentsDialog = () => {
+    navigate('/dashboard/componentsDialog');
+    onChange();
+  };
+
   return (
     <div className="flex flex-col h-full p-4">
       <div className="flex justify-center items-center pt-5 pb-4 text-white">
@@ -179,6 +184,12 @@ const SideMenu = ({ onChange = () => null }) => {
                 onClick={handleComponentsAlert}
                 icon={<ExtensionIcon className="text-white" />}
                 isSelected={location.pathname === '/dashboard/componentsAlert'}
+              />
+              <DrawerItem
+                text={'Ventanas Modales'}
+                onClick={handleComponentsDialog}
+                icon={<ExtensionIcon className="text-white" />}
+                isSelected={location.pathname === '/dashboard/componentsDialog'}
               />
             </List>
           </Collapse>

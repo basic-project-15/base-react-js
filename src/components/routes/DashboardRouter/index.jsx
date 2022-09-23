@@ -5,6 +5,7 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import {
   ComponentsAlert,
   ComponentsButton,
+  ComponentsDialog,
   ComponentsInputs1,
   ComponentsInputs2,
   ComponentsInputs3,
@@ -25,6 +26,7 @@ export const DashboardRouter = () => {
         <Route path="/configuration" element={<Configuration />} />
         <Route path="/componentsAlert" element={<ComponentsAlert />} />
         <Route path="/componentsButton" element={<ComponentsButton />} />
+        <Route path="/componentsDialog" element={<ComponentsDialog />} />
         <Route path="/componentsInputs1" element={<ComponentsInputs1 />} />
         <Route path="/componentsInputs2" element={<ComponentsInputs2 />} />
         <Route path="/componentsInputs3" element={<ComponentsInputs3 />} />

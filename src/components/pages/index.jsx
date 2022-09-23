@@ -1,5 +1,6 @@
 export { default as ComponentsAlert } from './ComponentsAlert';
 export { default as ComponentsButton } from './ComponentsButton';
+export { default as ComponentsDialog } from './ComponentsDialog';
 export { default as ComponentsInputs1 } from './ComponentsInputs1';
 export { default as ComponentsInputs2 } from './ComponentsInputs2';
 export { default as ComponentsInputs3 } from './ComponentsInputs3';
