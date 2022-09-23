@@ -1,3 +1,4 @@
+export { default as AlertCustom } from './AlertCustom';
 export { default as ButtonCustom } from './ButtonCustom';
 export { default as CheckBoxCustom } from './CheckBoxCustom';
 export { default as ControlLabelCustom } from './ControlLabelCustom';
