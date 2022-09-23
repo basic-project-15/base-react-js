@@ -30,9 +30,6 @@ const DialogCustom = ({
           aria-labelledby="alert-dialog-title"
           aria-describedby="alert-dialog-description"
           onClose={() => !disabledDismiss && handleClose()}
-          as="div"
-          className="fixed inset-0 overflow-y-auto"
-          style={{ zIndex: 10000, backgroundColor: `${colors.black}80` }}
           maxWidth={false}
         >
           <DialogTitleCustom
