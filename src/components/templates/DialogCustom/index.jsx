@@ -5,9 +5,6 @@ import { Dialog } from '@mui/material';
 import { TextCustom } from '../../atoms';
 import { DialogTitleCustom } from '../../molecules';
 
-// Styles
-import { colors } from '../../styles/theme';
-
 const DialogCustom = ({
   children = null,
   disabledDismiss = false,
