@@ -1,6 +1,6 @@
 import { colors } from '../../components/styles/theme';
 
-const { primary, secondary, green, red, orange, gray } = colors;
+const { primary, secondary, green, red, orange, gray, white } = colors;
 
 export const renderColor = (typeColor = '') => {
   let customColor = undefined;
@@ -22,6 +22,9 @@ export const renderColor = (typeColor = '') => {
       break;
     case 'default':
       customColor = gray;
+      break;
+    case 'white':
+      customColor = white;
       break;
     default:
       customColor = undefined;

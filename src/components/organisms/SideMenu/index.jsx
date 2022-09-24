@@ -27,7 +27,8 @@ const SideMenu = ({ onChange = () => null }) => {
   const location = useLocation();
   const navigate = useNavigate();
   const { dispatchAuth } = useContext(AuthContext);
-  const [showComponents, setShowComponents] = useState(false);
+  const [showComponents1, setShowComponents1] = useState(false);
+  const [showComponents2, setShowComponents2] = useState(false);
 
   const handleHome = () => {
     navigate('/dashboard/home');
@@ -74,6 +75,21 @@ const SideMenu = ({ onChange = () => null }) => {
     onChange();
   };
 
+  const handleComponentsLoader = () => {
+    navigate('/dashboard/componentsLoader');
+    onChange();
+  };
+
+  const handleComponentsAlert = () => {
+    navigate('/dashboard/componentsAlert');
+    onChange();
+  };
+
+  const handleComponentsDialog = () => {
+    navigate('/dashboard/componentsDialog');
+    onChange();
+  };
+
   return (
     <div className="flex flex-col h-full p-4">
       <div className="flex justify-center items-center pt-5 pb-4 text-white">
@@ -94,13 +110,13 @@ const SideMenu = ({ onChange = () => null }) => {
             isSelected={location.pathname === '/dashboard/configuration'}
           />
           <DrawerItem
-            text={'Componentes'}
-            onClick={() => setShowComponents(!showComponents)}
+            text={'Componentes 1'}
+            onClick={() => setShowComponents1(!showComponents1)}
             icon={<ScienceIcon className="text-white" />}
             isCollapse
-            collapse={showComponents}
+            collapse={showComponents1}
           />
-          <Collapse in={showComponents} timeout="auto" unmountOnExit>
+          <Collapse in={showComponents1} timeout="auto" unmountOnExit>
             <List className="flex flex-col gap-1 py-0 ml-2">
               <DrawerItem
                 text={'Textos y colores'}
@@ -145,6 +161,35 @@ const SideMenu = ({ onChange = () => null }) => {
                 isSelected={
                   location.pathname === '/dashboard/componentsInputs4'
                 }
+              />
+            </List>
+          </Collapse>
+          <DrawerItem
+            text={'Componentes 2'}
+            onClick={() => setShowComponents2(!showComponents2)}
+            icon={<ScienceIcon className="text-white" />}
+            isCollapse
+            collapse={showComponents2}
+          />
+          <Collapse in={showComponents2} timeout="auto" unmountOnExit>
+            <List className="flex flex-col gap-1 py-0 ml-2">
+              <DrawerItem
+                text={'Loaders'}
+                onClick={handleComponentsLoader}
+                icon={<ExtensionIcon className="text-white" />}
+                isSelected={location.pathname === '/dashboard/componentsLoader'}
+              />
+              <DrawerItem
+                text={'Alerts'}
+                onClick={handleComponentsAlert}
+                icon={<ExtensionIcon className="text-white" />}
+                isSelected={location.pathname === '/dashboard/componentsAlert'}
+              />
+              <DrawerItem
+                text={'Ventanas Modales'}
+                onClick={handleComponentsDialog}
+                icon={<ExtensionIcon className="text-white" />}
+                isSelected={location.pathname === '/dashboard/componentsDialog'}
               />
             </List>
           </Collapse>
