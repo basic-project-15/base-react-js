@@ -2,15 +2,16 @@ import React from 'react';
 
 // Components
 import { Divider } from '@mui/material';
-import { ButtonCustom, TextCustom } from '../../atoms';
+import { ButtonCustom, IconButtonCustom, TextCustom } from '../../atoms';
 
 // Assets
 import SendIcon from '@mui/icons-material/Send';
 import ReplyIcon from '@mui/icons-material/Reply';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const ComponentsButton = () => {
   return (
-    <div>
+    <div className="pb-4">
       <TextCustom text="Componentes para botones" className="text-6xl" />
       <Divider />
       <ButtonCustom text="Por defecto" />
@@ -245,6 +246,64 @@ const ComponentsButton = () => {
             <TextCustom text="uppercase:" className="text-lg" />
             <ButtonCustom text="Por defecto" textTransform="uppercase" />
           </div>
+        </div>
+        <Divider />
+      </div>
+      {/* IconButtons */}
+      <div className="px-4 pt-4">
+        <TextCustom text="Variantes" className="text-3xl" />
+        <Divider />
+        <div className="flex flex-col gap-1">
+          <div className="flex items-center">
+            <IconButtonCustom icon={<DeleteIcon />} />
+            <TextCustom text="Icon Button Por Defecto" />
+          </div>
+          <div className="flex items-center">
+            <IconButtonCustom icon={<DeleteIcon />} disabled />
+            <TextCustom text="Icon Button Deshabilitado" />
+          </div>
+          <div className="flex items-center">
+            <IconButtonCustom icon={<DeleteIcon />} typeColor="primary" />
+            <TextCustom text="Icon Button Primario" />
+          </div>
+          <div className="flex items-center">
+            <IconButtonCustom icon={<DeleteIcon />} typeColor="secondary" />
+            <TextCustom text="Icon Button Secundario" />
+          </div>
+          <div className="flex items-center">
+            <IconButtonCustom icon={<DeleteIcon />} typeColor="success" />
+            <TextCustom text="Icon Button Exitoso" />
+          </div>
+          <div className="flex items-center">
+            <IconButtonCustom icon={<DeleteIcon />} typeColor="danger" />
+            <TextCustom text="Icon Button Alerta" />
+          </div>
+          <div className="flex items-center">
+            <IconButtonCustom icon={<DeleteIcon />} typeColor="warning" />
+            <TextCustom text="Icon Button Advertencia" />
+          </div>
+          <div className="flex items-center">
+            <IconButtonCustom icon={<DeleteIcon />} typeColor="default" />
+            <TextCustom text="Icon Button Gris" />
+          </div>
+          <div className="flex flex-column items-center">
+            <TextCustom text="Tamaños de botones:" />
+            <div className="flex items-center">
+              <IconButtonCustom icon={<DeleteIcon />} size={16} />
+              <IconButtonCustom icon={<DeleteIcon />} size={'1rem'} />
+              <IconButtonCustom icon={<DeleteIcon />} />
+              <IconButtonCustom icon={<DeleteIcon />} size={'2rem'} />
+              <IconButtonCustom icon={<DeleteIcon />} size={48} />
+              <IconButtonCustom icon={<DeleteIcon />} size={'3rem'} />
+              <IconButtonCustom icon={<DeleteIcon />} size={64} />
+              <IconButtonCustom icon={<DeleteIcon />} size={'4rem'} />
+            </div>
+          </div>
+          <TextCustom text="Medidas: 16px, 1rem, 32px, 2rem, 40px, 3rem, 48px, 4rem" />
+          <TextCustom
+            text="Se aconseja usar las medidas rem"
+            className="italic"
+          />
         </div>
         <Divider />
       </div>

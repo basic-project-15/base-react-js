@@ -3,10 +3,8 @@ import React from 'react';
 // Components
 import { Button } from '@mui/material';
 
-// Styles
-import { colors } from '../../styles/theme';
-
-const { primary, secondary, success, danger, warning, gray } = colors;
+// Core
+import { renderColor } from '../../../core/utils';
 
 const ButtonCustom = ({
   text = '',
@@ -19,63 +17,48 @@ const ButtonCustom = ({
   typeColor = '',
   textTransform = 'none',
 }) => {
-  const renderColor = () => {
-    let customColor = undefined;
-    switch (typeColor) {
-      case 'primary':
-        customColor = primary;
-        break;
-      case 'secondary':
-        customColor = secondary;
-        break;
-      case 'success':
-        customColor = success;
-        break;
-      case 'danger':
-        customColor = danger;
-        break;
-      case 'warning':
-        customColor = warning;
-        break;
-      case 'default':
-        customColor = gray;
-        break;
-      default:
-        customColor = undefined;
-        break;
-    }
-    return customColor;
-  };
   return (
-    <div>
-      <Button
-        color="primary"
-        variant={variant}
-        onClick={onClick}
-        className={`fontTWSemibold px-4 ${className}`}
-        startIcon={startIcon}
-        endIcon={endIcon}
-        disabled={disabled}
-        style={{
-          textTransform: textTransform,
+    <Button
+      color="primary"
+      variant={variant}
+      onClick={onClick}
+      className={`fontTWSemibold px-4 ${className}`}
+      startIcon={startIcon}
+      endIcon={endIcon}
+      disabled={disabled}
+      sx={{
+        textTransform: textTransform,
+        backgroundColor:
+          variant === 'contained' && !disabled
+            ? renderColor(typeColor)
+            : undefined,
+        borderColor:
+          (variant === 'outlined' || variant === 'text') && !disabled
+            ? renderColor(typeColor)
+            : undefined,
+        color:
+          (variant === 'outlined' || variant === 'text') && !disabled
+            ? renderColor(typeColor)
+            : undefined,
+        borderRadius: '8px',
+        fontSize: '16px',
+        boxShadow: 'none',
+        '&:hover': {
           backgroundColor:
-            variant === 'contained' && !disabled ? renderColor() : undefined,
+            variant === 'contained' && !disabled
+              ? `${renderColor(typeColor)}CF`
+              : (variant === 'outlined' || variant === 'text') && !disabled
+              ? `${renderColor(typeColor)}0F`
+              : undefined,
           borderColor:
             (variant === 'outlined' || variant === 'text') && !disabled
-              ? renderColor()
+              ? renderColor(typeColor)
               : undefined,
-          color:
-            (variant === 'outlined' || variant === 'text') && !disabled
-              ? renderColor()
-              : undefined,
-          borderRadius: '8px',
-          fontSize: '16px',
-          boxShadow: 'none',
-        }}
-      >
-        {text}
-      </Button>
-    </div>
+        },
+      }}
+    >
+      {text}
+    </Button>
   );
 };
 

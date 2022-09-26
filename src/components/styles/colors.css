@@ -22,15 +22,19 @@
   color: #6c757d;
 }
 
-.color-success {
+.color-ligth-gray {
+  color: #bebebe;
+}
+
+.color-green {
   color: #22bb33;
 }
 
-.color-danger {
+.color-red {
   color: #f32013;
 }
 
-.color-warning {
+.color-orange {
   color: #ffcc00;
 }
 
@@ -58,14 +62,18 @@
   background-color: #6c757d;
 }
 
-.bg-success {
+.bg-ligth-gray {
+  background-color: #bebebe;
+}
+
+.bg-green {
   background-color: #22bb33;
 }
 
-.bg-danger {
+.bg-red {
   background-color: #f32013;
 }
 
-.bg-warning {
+.bg-orange {
   background-color: #ffcc00;
 }

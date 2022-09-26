@@ -7,9 +7,8 @@ export const colors = {
   white: '#FFFFFF',
   black: '#000000',
   gray: '#6C757D',
-
-  // Alerts
-  success: '#22bb33',
-  danger: '#F32013',
-  warning: '#ffcc00',
+  ligthGray: '#CDCDCD',
+  green: '#22bb33',
+  red: '#F32013',
+  orange: '#ffcc00',
 };

@@ -1,1 +1,2 @@
-export { authTypes } from './types';
+export { typesActionsAuth } from './typesActions';
+export { typesValidation } from './typesValidation';

@@ -1,27 +1,137 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 
 // Hooks
 import { AuthContext } from '../../../hooks/context';
+import { useForm } from '../../../hooks/others';
 
 // Components
-import { Button } from '@mui/material';
+import {
+  AlertCustom,
+  ButtonCustom,
+  Loader,
+  TextCustom,
+  TextInputCustom,
+} from '../../atoms';
 
 // Const
-import { authTypes } from '../../../common/types';
+import { typesActionsAuth } from '../../../common/types';
+
+// Core
+import { formValidLogin } from '../../../core/validations';
+
+const { authLogin } = typesActionsAuth;
 
 const Login = () => {
   const { dispatchAuth } = useContext(AuthContext);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  // Validations
+  const [loader, setLoader] = useState(false);
+  const [showAlert, setShowAlert] = useState(false);
+  const [formErrors, setFormErrors, resetFormErrors] = useForm({
+    email: '',
+    password: '',
+  });
+  const [formSuccess, setFormSuccess, resetFormSuccess] = useForm({
+    email: false,
+    password: false,
+  });
+  const [alert, setAlert, resetAlert] = useForm({
+    title: '',
+    description: '',
+    severity: 'info',
+  });
+
+  const resetForm = () => {
+    resetFormErrors();
+    resetFormSuccess();
+    resetAlert();
+    setEmail('');
+    setPassword('');
+  };
 
   const handleLogin = () => {
-    dispatchAuth({ type: authTypes.login });
+    if (handleValidForm()) {
+      setLoader(true);
+      const params = { email, password };
+      const payload = {
+        personalInfo: params,
+        token: 'test',
+      };
+      setTimeout(() => {
+        const randomEndpoint = Math.floor(Math.random() * 2);
+        if (randomEndpoint) {
+          dispatchAuth({ type: authLogin, payload });
+          resetForm();
+        } else {
+          setShowAlert(true);
+          setAlert({
+            title: 'Credenciales no válidas.',
+            description:
+              'Esta validacion fue simulada por una probabilidad del 50% de ser exitosa o no.',
+            severity: 'error',
+          });
+        }
+        setLoader(false);
+      }, 1500);
+    }
+  };
+
+  const handleValidForm = () => {
+    const params = { email, password };
+    const responseValid = formValidLogin(params);
+    const { isValid, msgValid } = responseValid;
+    setFormErrors(msgValid.errors);
+    setFormSuccess(msgValid.success);
+    return isValid;
   };
 
   return (
-    <div>
-      <h1 className="mb-4">Login</h1>
-      <Button variant="outlined" onClick={handleLogin}>
-        Iniciar sesión
-      </Button>
+    <div className="w-screen h-screen flex justify-center items-center bg-slate-700">
+      <div className="flex flex-col w-96 px-6 py-8 rounded-xl bg-white">
+        <TextCustom
+          text="Inicio de sesión"
+          className="self-center text-2xl fontPBold color-general rounded-lg"
+        />
+        <div className="flex flex-col my-4 relative">
+          <AlertCustom
+            title={alert.title}
+            description={alert.description}
+            open={showAlert}
+            setOpen={setShowAlert}
+            severity={alert.severity}
+          />
+          <div className="flex flex-col gap-4 rounded-xl relative">
+            <TextInputCustom
+              name="Correo"
+              type="email"
+              value={email}
+              setValue={setEmail}
+              onBlur={handleValidForm}
+              msgError={formErrors.email}
+              success={formSuccess.email}
+            />
+            <TextInputCustom
+              name="Contraseña"
+              type="password"
+              value={password}
+              setValue={setPassword}
+              onBlur={handleValidForm}
+              onEnter={handleLogin}
+              msgError={formErrors.password}
+              success={formSuccess.password}
+            />
+            <ButtonCustom
+              text="Ingresar"
+              onClick={handleLogin}
+              className="w-full"
+              typeColor="primary"
+            />
+          </div>
+          {loader && <Loader mode="modal" />}
+        </div>
+      </div>
     </div>
   );
 };
