@@ -20,6 +20,7 @@ const TextInputCustom = ({
   value = '',
   setValue = () => null,
   onBlur = () => null,
+  onEnter = () => null,
   placeholder = '',
   type = 'text',
   typesValidation = '',
@@ -74,6 +75,11 @@ const TextInputCustom = ({
         value={value}
         onChange={handleOnChange}
         onBlur={onBlur}
+        onKeyDown={event => {
+          if (event.code === 'Enter') {
+            onEnter();
+          }
+        }}
         variant="outlined"
         size="large"
         multiline={multiline}

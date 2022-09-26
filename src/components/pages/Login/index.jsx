@@ -2,20 +2,73 @@ import React, { useContext, useState } from 'react';
 
 // Hooks
 import { AuthContext } from '../../../hooks/context';
+import { useForm } from '../../../hooks/others';
 
 // Components
-import { ButtonCustom, TextCustom, TextInputCustom } from '../../atoms';
+import {
+  AlertCustom,
+  ButtonCustom,
+  TextCustom,
+  TextInputCustom,
+} from '../../atoms';
 
 // Const
 import { typesActionsAuth } from '../../../common/types';
 
+// Core
+import { formValidLogin } from '../../../core/validations';
+
+const { authLogin } = typesActionsAuth;
+
 const Login = () => {
   const { dispatchAuth } = useContext(AuthContext);
-  const [correo, setCorreo] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
+  // Validations
+  const [showAlert, setShowAlert] = useState(false);
+  const [isValidForm, setIsValidForm] = useState(false);
+  const [formErrors, setFormErrors, resetFormErrors] = useForm({
+    email: '',
+    password: '',
+  });
+  const [formSuccess, setFormSuccess, resetFormSuccess] = useForm({
+    email: false,
+    password: false,
+  });
+  const [alert, setAlert, resetAlert] = useForm({
+    title: '',
+    description: '',
+    severity: '',
+  });
+
+  const resetForm = () => {
+    resetFormErrors();
+    resetFormSuccess();
+    resetAlert();
+    setEmail('');
+    setPassword('');
+  };
+
   const handleLogin = () => {
-    dispatchAuth({ type: typesActionsAuth.authLogin });
+    if (isValidForm) {
+      const params = { email, password };
+      const payload = {
+        personalInfo: params,
+        token: 'test',
+      };
+      dispatchAuth({ type: authLogin, payload });
+      resetForm();
+    }
+  };
+
+  const handleValidForm = () => {
+    const params = { email, password };
+    const responseValid = formValidLogin(params);
+    const { isValid, msgValid } = responseValid;
+    setFormErrors(msgValid.errors);
+    setFormSuccess(msgValid.success);
+    setIsValidForm(isValid);
   };
 
   return (
@@ -25,17 +78,31 @@ const Login = () => {
           text="Inicio de sesión"
           className="self-center text-2xl fontPBold color-general rounded-lg"
         />
+        <AlertCustom
+          title={alert.title}
+          description={alert.description}
+          open={showAlert}
+          resetValues={setShowAlert}
+          severity={alert.severity}
+        />
         <TextInputCustom
           name="Correo"
           type="email"
-          value={correo}
-          setValue={setCorreo}
+          value={email}
+          setValue={setEmail}
+          onBlur={handleValidForm}
+          msgError={formErrors.email}
+          success={formSuccess.email}
         />
         <TextInputCustom
           name="Contraseña"
           type="password"
           value={password}
           setValue={setPassword}
+          onBlur={handleValidForm}
+          onEnter={handleLogin}
+          msgError={formErrors.password}
+          success={formSuccess.password}
         />
         <ButtonCustom
           text="Ingresar"

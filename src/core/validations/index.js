@@ -3,3 +3,4 @@ export {
   validInputEmail,
   validInputInitialNumbers,
 } from './validateInput';
+export { formValidLogin } from './validLogin';

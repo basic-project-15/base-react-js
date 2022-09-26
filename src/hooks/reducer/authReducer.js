@@ -4,12 +4,15 @@ const initialState = {
   isLogin: false,
 };
 
-const authReducer = (state = initialState, action) => {
-  switch (action.type) {
+const authReducer = (state = initialState, action = null) => {
+  const { type, payload } = action;
+  switch (type) {
     case typesActionsAuth.authLogin:
       const newState = {
         ...state,
         isLogin: true,
+        personalInfo: payload?.personalInfo,
+        token: payload?.token,
       };
       return newState;
     case typesActionsAuth.authLogout:
