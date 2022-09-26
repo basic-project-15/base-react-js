@@ -8,6 +8,7 @@ import { useForm } from '../../../hooks/others';
 import {
   AlertCustom,
   ButtonCustom,
+  Loader,
   TextCustom,
   TextInputCustom,
 } from '../../atoms';
@@ -26,8 +27,8 @@ const Login = () => {
   const [password, setPassword] = useState('');
 
   // Validations
+  const [loader, setLoader] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
-  const [isValidForm, setIsValidForm] = useState(false);
   const [formErrors, setFormErrors, resetFormErrors] = useForm({
     email: '',
     password: '',
@@ -39,7 +40,7 @@ const Login = () => {
   const [alert, setAlert, resetAlert] = useForm({
     title: '',
     description: '',
-    severity: '',
+    severity: 'info',
   });
 
   const resetForm = () => {
@@ -51,14 +52,29 @@ const Login = () => {
   };
 
   const handleLogin = () => {
-    if (isValidForm) {
+    if (handleValidForm()) {
+      setLoader(true);
       const params = { email, password };
       const payload = {
         personalInfo: params,
         token: 'test',
       };
-      dispatchAuth({ type: authLogin, payload });
-      resetForm();
+      setTimeout(() => {
+        const randomEndpoint = Math.floor(Math.random() * 2);
+        if (randomEndpoint) {
+          dispatchAuth({ type: authLogin, payload });
+          resetForm();
+        } else {
+          setShowAlert(true);
+          setAlert({
+            title: 'Credenciales no válidas.',
+            description:
+              'Esta validacion fue simulada por una probabilidad del 50% de ser exitosa o no.',
+            severity: 'error',
+          });
+        }
+        setLoader(false);
+      }, 2000);
     }
   };
 
@@ -68,48 +84,53 @@ const Login = () => {
     const { isValid, msgValid } = responseValid;
     setFormErrors(msgValid.errors);
     setFormSuccess(msgValid.success);
-    setIsValidForm(isValid);
+    return isValid;
   };
 
   return (
     <div className="w-screen h-screen flex justify-center items-center bg-slate-700">
-      <div className="bg-white w-96 px-6 py-8 flex flex-col gap-4 rounded-xl">
+      <div className="flex flex-col w-96 px-6 py-8 rounded-xl bg-white">
         <TextCustom
           text="Inicio de sesión"
           className="self-center text-2xl fontPBold color-general rounded-lg"
         />
-        <AlertCustom
-          title={alert.title}
-          description={alert.description}
-          open={showAlert}
-          resetValues={setShowAlert}
-          severity={alert.severity}
-        />
-        <TextInputCustom
-          name="Correo"
-          type="email"
-          value={email}
-          setValue={setEmail}
-          onBlur={handleValidForm}
-          msgError={formErrors.email}
-          success={formSuccess.email}
-        />
-        <TextInputCustom
-          name="Contraseña"
-          type="password"
-          value={password}
-          setValue={setPassword}
-          onBlur={handleValidForm}
-          onEnter={handleLogin}
-          msgError={formErrors.password}
-          success={formSuccess.password}
-        />
-        <ButtonCustom
-          text="Ingresar"
-          onClick={handleLogin}
-          className="w-full"
-          typeColor="primary"
-        />
+        <div className="flex flex-col my-4 relative">
+          <AlertCustom
+            title={alert.title}
+            description={alert.description}
+            open={showAlert}
+            setOpen={setShowAlert}
+            severity={alert.severity}
+          />
+          <div className="flex flex-col gap-4 rounded-xl relative">
+            <TextInputCustom
+              name="Correo"
+              type="email"
+              value={email}
+              setValue={setEmail}
+              onBlur={handleValidForm}
+              msgError={formErrors.email}
+              success={formSuccess.email}
+            />
+            <TextInputCustom
+              name="Contraseña"
+              type="password"
+              value={password}
+              setValue={setPassword}
+              onBlur={handleValidForm}
+              onEnter={handleLogin}
+              msgError={formErrors.password}
+              success={formSuccess.password}
+            />
+            <ButtonCustom
+              text="Ingresar"
+              onClick={handleLogin}
+              className="w-full"
+              typeColor="primary"
+            />
+          </div>
+          {loader && <Loader mode="modal" />}
+        </div>
       </div>
     </div>
   );
