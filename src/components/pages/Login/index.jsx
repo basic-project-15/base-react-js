@@ -74,7 +74,7 @@ const Login = () => {
           });
         }
         setLoader(false);
-      }, 2000);
+      }, 1500);
     }
   };
 

@@ -12,6 +12,7 @@ import { DrawerItem } from '../../atoms';
 import { typesActionsAuth } from '../../../common/types';
 
 // Assets
+import { ReactComponent as LogoIcon } from '../../../assets/icons/LogoIcon.svg';
 import { ReactComponent as HomeIcon } from '../../../assets/icons/HomeIcon.svg';
 import ExtensionIcon from '@mui/icons-material/Extension';
 import SettingsIcon from '@mui/icons-material/Settings';
@@ -93,7 +94,7 @@ const SideMenu = ({ onChange = () => null }) => {
   return (
     <div className="flex flex-col h-full p-4">
       <div className="flex justify-center items-center pt-5 pb-4 text-white">
-        Logo
+        <LogoIcon fill={white} className="w-10 h-10" />
       </div>
       <div className="h-full flex flex-col justify-between">
         <List className="flex flex-col gap-1 py-0">
