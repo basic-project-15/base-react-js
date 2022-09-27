@@ -58,7 +58,6 @@ const Login = () => {
       const params = { email, password };
       const response = await apiLogin(params);
       const { success, message, data } = response;
-      console.log(response);
       if (success) {
         const payload = {
           personalInfo: data.user,
