@@ -18,6 +18,7 @@ import { typesActionsAuth } from '../../../common/types';
 
 // Core
 import { formValidLogin } from '../../../core/validations';
+import { apiLogin } from '../../../services/apis';
 
 const { authLogin } = typesActionsAuth;
 
@@ -51,30 +52,29 @@ const Login = () => {
     setPassword('');
   };
 
-  const handleLogin = () => {
+  const handleLogin = async () => {
     if (handleValidForm()) {
       setLoader(true);
       const params = { email, password };
-      const payload = {
-        personalInfo: params,
-        token: 'test',
-      };
-      setTimeout(() => {
-        const randomEndpoint = Math.floor(Math.random() * 2);
-        if (randomEndpoint) {
-          dispatchAuth({ type: authLogin, payload });
-          resetForm();
-        } else {
-          setShowAlert(true);
-          setAlert({
-            title: 'Credenciales no válidas.',
-            description:
-              'Esta validacion fue simulada por una probabilidad del 50% de ser exitosa o no.',
-            severity: 'error',
-          });
-        }
-        setLoader(false);
-      }, 1500);
+      const response = await apiLogin(params);
+      const { success, message, data } = response;
+      console.log(response);
+      if (success) {
+        const payload = {
+          personalInfo: data.user,
+          token: data.token,
+        };
+        dispatchAuth({ type: authLogin, payload });
+        resetForm();
+      } else {
+        setShowAlert(true);
+        setAlert({
+          title: 'Error',
+          description: message,
+          severity: 'error',
+        });
+      }
+      setLoader(false);
     }
   };
 
