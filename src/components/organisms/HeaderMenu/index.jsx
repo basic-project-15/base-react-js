@@ -36,7 +36,7 @@ const HeaderMenu = ({ drawerWidth, handleDrawerToggle }) => {
         </IconButton>
         <div className="w-full flex justify-end">
           <div className="flex items-center gap-3">
-            <TextCustom text={personalInfo.email} className="text-black" />
+            <TextCustom text={personalInfo.name} className="text-black" />
             <img src={Avatar} alt="avatar" className="w-10 h-10 rounded-full" />
           </div>
         </div>
