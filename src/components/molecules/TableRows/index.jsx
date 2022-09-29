@@ -1,8 +1,8 @@
 import React from 'react';
 
 // Components
-import { IconButtonCustom } from '../../atoms';
 import { Tooltip } from '@mui/material';
+import { IconButtonCustom, TableState } from '../../atoms';
 
 // Const
 import { typesTableActions } from '../../../common/types';
@@ -29,35 +29,35 @@ const TableRows = ({
       case tableView:
         actionIcon = (
           <Tooltip title="Ver">
-            <VisibilityIcon fill="#b4b4b4" />
+            <VisibilityIcon />
           </Tooltip>
         );
         break;
       case tableAdd:
         actionIcon = (
           <Tooltip title="Agregar">
-            <AddIcon fill="#b4b4b4" />
+            <AddIcon />
           </Tooltip>
         );
         break;
       case tableEdit:
         actionIcon = (
           <Tooltip title="Editar">
-            <EditIcon fill="#b4b4b4" />
+            <EditIcon />
           </Tooltip>
         );
         break;
       case tableDelete:
         actionIcon = (
           <Tooltip title="Eliminar">
-            <DeleteIcon fill="#b4b4b4" />
+            <DeleteIcon />
           </Tooltip>
         );
         break;
       default:
         actionIcon = (
           <Tooltip title="Delete">
-            <VisibilityIcon fill="#b4b4b4" />
+            <VisibilityIcon />
           </Tooltip>
         );
         break;
@@ -68,7 +68,7 @@ const TableRows = ({
   const renderCells = cell => {
     let element = null;
     if (cell.column.id === 'STATE') {
-      element = <span>Estado</span>;
+      element = <TableState state={cell.value} />;
     } else {
       element = cell.render('Cell');
     }
@@ -80,7 +80,10 @@ const TableRows = ({
       {page.map(row => {
         prepareRow(row);
         return (
-          <tr className="hover:bg-gray-300" {...row.getRowProps()}>
+          <tr
+            className="hover:bg-gray-200 even:bg-gray-100"
+            {...row.getRowProps()}
+          >
             {row.cells.map(cell => (
               <td
                 className="border-b border-gray-300 px-3 py-2 "
@@ -90,7 +93,7 @@ const TableRows = ({
               </td>
             ))}
             {isActions && (
-              <td className="border-b border-gray-300 px-3 py-2 flex justify-end">
+              <td className="border-b border-gray-300 px-3 flex justify-end">
                 {actions.map((action, index) => {
                   let rowEnabled = row.original.ENABLED;
                   let enabled = true;
@@ -101,6 +104,9 @@ const TableRows = ({
                     <IconButtonCustom
                       key={index}
                       icon={renderActions(action)}
+                      typeColor="default"
+                      typeColorHover="primary"
+                      size="1.5rem"
                       onClick={() =>
                         actionClick(
                           action,

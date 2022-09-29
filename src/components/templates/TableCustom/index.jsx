@@ -81,7 +81,7 @@ const TableCustom = ({
             value={globalFilter}
             setValue={setGlobalFilter}
             className="mb-2"
-            icon={<SearchIcon />}
+            iconStart={<SearchIcon />}
           />
         </div>
       )}
