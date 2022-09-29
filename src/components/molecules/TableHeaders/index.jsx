@@ -17,8 +17,8 @@ const TableHeaders = ({
           className="rt-th"
           {...column.getHeaderProps(column.getSortByToggleProps())}
         >
-          {column.render('Header')}
-          <span>
+          <span className="flex items-center">
+            {column.render('Header')}
             {column.isSorted ? (
               column.isSortedDesc ? (
                 <ArrowDropUpIcon />
@@ -26,7 +26,7 @@ const TableHeaders = ({
                 <ArrowDropDownIcon />
               )
             ) : (
-              <SortIcon width={12} height={12} style={{ marginLeft: 4 }} />
+              <SortIcon className="w-3 h-3 ml-1" />
             )}
           </span>
         </th>

@@ -1,3 +1,5 @@
+import dayjs from 'dayjs';
+
 export const columnsBasic = [
   {
     Header: 'Id',
@@ -15,7 +17,8 @@ export const columnsBasic = [
     Header: 'Fecha de Nacimiento',
     accessor: 'date_of_birth',
     Cell: ({ value }) => {
-      return new Date(value);
+      const dateFormat = dayjs(new Date(value)).format('DD/MM/YYYY');
+      return dateFormat;
     },
   },
   {
