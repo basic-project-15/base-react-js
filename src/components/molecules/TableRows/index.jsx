@@ -80,14 +80,17 @@ const TableRows = ({
       {page.map(row => {
         prepareRow(row);
         return (
-          <tr className="rt-tr" {...row.getRowProps()}>
+          <tr className="hover:bg-gray-300" {...row.getRowProps()}>
             {row.cells.map(cell => (
-              <td className="rt-td" {...cell.getCellProps()}>
+              <td
+                className="border-b border-gray-300 px-3 py-2 "
+                {...cell.getCellProps()}
+              >
                 {renderCells(cell)}
               </td>
             ))}
             {isActions && (
-              <td className="rt-td flex justify-end">
+              <td className="border-b border-gray-300 px-3 py-2 flex justify-end">
                 {actions.map((action, index) => {
                   let rowEnabled = row.original.ENABLED;
                   let enabled = true;

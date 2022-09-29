@@ -13,9 +13,6 @@ import SearchIcon from '@mui/icons-material/Search';
 import { TextInputCustom } from '../../atoms';
 import { TablePagination, TableHeaders, TableRows } from '../../molecules';
 
-// Styles
-import './styles.css';
-
 const TableCustom = ({
   columns = [],
   data = [],
@@ -88,10 +85,13 @@ const TableCustom = ({
           />
         </div>
       )}
-      <table className="table-custom" {...getTableProps()}>
+      <table
+        className="w-full fontPRegular border-collapse"
+        {...getTableProps()}
+      >
         <thead>
           {headerGroups.map(headerGroup => (
-            <tr className="rt-tr" {...headerGroup.getHeaderGroupProps()}>
+            <tr {...headerGroup.getHeaderGroupProps()}>
               <TableHeaders
                 headerGroup={headerGroup}
                 isActions={actions.length > 0}

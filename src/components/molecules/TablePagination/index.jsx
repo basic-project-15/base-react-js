@@ -39,7 +39,7 @@ const TablePagination = ({
   return (
     <div className="flex justify-center items-center mt-5">
       <IconButtonCustom
-        icon={<ArrowBackIosIcon fontSize="20" />}
+        icon={<ArrowBackIosIcon fontSize="20" className="fill-primary" />}
         onClick={previousPage}
         disabled={!canPreviousPage}
         size="small"
@@ -47,10 +47,9 @@ const TablePagination = ({
       {pagesShow.map((page, index) => (
         <div
           key={index}
-          className={`${
+          className={`flex justify-center items-center mx-1 w-6 h-6 cursor-pointer rounded-md ${
             pageIndex === page ? 'text-white bg-general' : 'color-general'
-          } flex justify-center items-center mx-1`}
-          style={{ width: 23, height: 23, cursor: 'pointer', borderRadius: 5 }}
+          }`}
           onClick={() => page !== '...' && gotoPage(page)}
         >
           <span className="text-center fontPRegular text-sm">
@@ -59,7 +58,7 @@ const TablePagination = ({
         </div>
       ))}
       <IconButtonCustom
-        icon={<ArrowForwardIosIcon fontSize="20" />}
+        icon={<ArrowForwardIosIcon fontSize="20" className="fill-primary" />}
         onClick={nextPage}
         disabled={!canNextPage}
         size="small"
