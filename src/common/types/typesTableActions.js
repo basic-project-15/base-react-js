@@ -1,7 +1,6 @@
 export const typesTableActions = {
-  view: 'view',
-  create: 'create',
-  edit: 'edit',
-  delete: 'delete',
-  more: 'more',
+  tableView: 'tableView',
+  tableAdd: 'tableAdd',
+  tableEdit: 'tableEdit',
+  tableDelete: 'tableDelete',
 };

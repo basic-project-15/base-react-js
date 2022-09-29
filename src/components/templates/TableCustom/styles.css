@@ -1,0 +1,31 @@
+.table-custom {
+  font-family: Poppins-Regular;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table-custom .rt-td,
+.table-custom .rt-th {
+  border-bottom: 1px solid #e6e6e6;
+  padding: 8px 15px;
+}
+
+.css-15rynab-MuiButtonBase-root-MuiIconButton-root:hover svg {
+  filter: invert(54%) sepia(81%) saturate(6317%) hue-rotate(201deg)
+    brightness(99%) contrast(105%);
+}
+
+.table-custom .rt-th {
+  padding: 12px 15px;
+  background-color: #e1f5ff80;
+  color: #212324;
+  border-bottom: none;
+}
+
+.table-custom .rt-th:first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+.table-custom .rt-th:last-child {
+  border-radius: 0 10px 10px 0;
+}
