@@ -249,9 +249,9 @@ const ComponentsButton = () => {
         </div>
         <Divider />
       </div>
-      {/* IconButtons */}
+      {/* Colores */}
       <div className="px-4 pt-4">
-        <TextCustom text="Variantes" className="text-3xl" />
+        <TextCustom text="Colores" className="text-3xl" />
         <Divider />
         <div className="flex flex-col gap-1">
           <div className="flex items-center">
@@ -286,6 +286,82 @@ const ComponentsButton = () => {
             <IconButtonCustom icon={<DeleteIcon />} typeColor="default" />
             <TextCustom text="Icon Button Gris" />
           </div>
+        </div>
+        <Divider />
+      </div>
+      {/* Colores con Hover */}
+      <div className="px-4 pt-4">
+        <TextCustom text="Colores con Hover" className="text-3xl" />
+        <Divider />
+        <div className="flex flex-col gap-1">
+          <div className="flex items-center">
+            <IconButtonCustom icon={<DeleteIcon />} typeColorHover="default" />
+            <TextCustom text="Icon Button Por Defecto con hover Gris" />
+          </div>
+          <div className="flex items-center">
+            <IconButtonCustom
+              icon={<DeleteIcon />}
+              typeColorHover="default"
+              disabled
+            />
+            <TextCustom text="Icon Button Deshabilitado" />
+          </div>
+          <div className="flex items-center">
+            <IconButtonCustom
+              icon={<DeleteIcon />}
+              typeColor="default"
+              typeColorHover="primary"
+            />
+            <TextCustom text="Icon Button Gris con hover Primario" />
+          </div>
+          <div className="flex items-center">
+            <IconButtonCustom
+              icon={<DeleteIcon />}
+              typeColor="default"
+              typeColorHover="secondary"
+            />
+            <TextCustom text="Icon Button Gris con hover Secundario" />
+          </div>
+          <div className="flex items-center">
+            <IconButtonCustom
+              icon={<DeleteIcon />}
+              typeColor="default"
+              typeColorHover="success"
+            />
+            <TextCustom text="Icon Button Gris con hover Exitoso" />
+          </div>
+          <div className="flex items-center">
+            <IconButtonCustom
+              icon={<DeleteIcon />}
+              typeColor="default"
+              typeColorHover="danger"
+            />
+            <TextCustom text="Icon Button Gris con hover Alerta" />
+          </div>
+          <div className="flex items-center">
+            <IconButtonCustom
+              icon={<DeleteIcon />}
+              typeColor="default"
+              typeColorHover="warning"
+            />
+            <TextCustom text="Icon Button Gris con hover Advertencia" />
+          </div>
+          <div className="flex items-center">
+            <IconButtonCustom
+              icon={<DeleteIcon />}
+              typeColor="primary"
+              typeColorHover="default"
+            />
+            <TextCustom text="Icon Button Primario con hover Gris" />
+          </div>
+        </div>
+        <Divider />
+      </div>
+      {/* Tamaños */}
+      <div className="px-4 pt-4">
+        <TextCustom text="Tamaños" className="text-3xl" />
+        <Divider />
+        <div className="flex flex-col gap-1">
           <div className="flex flex-column items-center">
             <TextCustom text="Tamaños de botones:" />
             <div className="flex items-center">
