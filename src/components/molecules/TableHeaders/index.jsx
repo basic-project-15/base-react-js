@@ -31,7 +31,11 @@ const TableHeaders = ({
           </span>
         </th>
       ))}
-      {isActions && <th className="rt-th">{actionColumnTitle}</th>}
+      {isActions && (
+        <th className="bg-general text-white pl-3 pr-6 py-2 text-end">
+          {actionColumnTitle}
+        </th>
+      )}
     </>
   );
 };

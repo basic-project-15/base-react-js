@@ -14,6 +14,7 @@ const IconButtonCustom = ({
   icon = null,
   disabled = false,
   typeColor = '',
+  typeColorHover = '',
 }) => {
   return (
     <IconButton
@@ -33,10 +34,16 @@ const IconButtonCustom = ({
           width: size,
           height: size,
         },
+        '&:hover.MuiButtonBase-root svg': {
+          color: `${renderColor(typeColorHover ? typeColorHover : typeColor)}`,
+        },
         '&.MuiTouchRipple-root': {
           backgroundColor: 'red',
         },
         color: renderColor(typeColor),
+        ':hover': {
+          color: `${renderColor(typeColorHover ? typeColorHover : typeColor)}`,
+        },
       }}
     >
       {icon}
