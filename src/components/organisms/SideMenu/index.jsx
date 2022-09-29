@@ -9,7 +9,7 @@ import { Collapse, List } from '@mui/material';
 import { DrawerItem } from '../../atoms';
 
 // Const
-import { typesActionsAuth } from '../../../common/types';
+import { typesGlobalState } from '../../../common/types';
 
 // Assets
 import { ReactComponent as LogoIcon } from '../../../assets/icons/LogoIcon.svg';
@@ -23,6 +23,7 @@ import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
 import { colors } from '../../styles/theme';
 
 const { white } = colors;
+const { authLogout } = typesGlobalState;
 
 const SideMenu = ({ onChange = () => null }) => {
   const location = useLocation();
@@ -42,7 +43,7 @@ const SideMenu = ({ onChange = () => null }) => {
   };
 
   const handleLogout = () => {
-    dispatchAuth({ type: typesActionsAuth.authLogout });
+    dispatchAuth({ type: authLogout });
     onChange();
   };
 
