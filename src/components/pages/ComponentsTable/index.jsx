@@ -6,10 +6,16 @@ import { TextCustom } from '../../atoms';
 import { TableCustom } from '../../templates';
 
 // Const
+import {
+  columnsBasic,
+  columnsBasic2,
+  columnsBasic3,
+} from '../../../common/tables';
+import { typesTableActions } from '../../../common/types';
+
+// Fake Data
 import users from '../../../common/tables/users.json';
 import usersMin from '../../../common/tables/users-min.json';
-import { columnsBasic, columnsBasic2 } from '../../../common/tables';
-import { typesTableActions } from '../../../common/types';
 
 const { tableAdd, tableEdit, tableDelete, tableView } = typesTableActions;
 
@@ -100,6 +106,15 @@ const ComponentsTable = () => {
             identifierAction="first_name"
             actions={[tableView, tableAdd, tableEdit, tableDelete]}
             actionClick={(action, id, obj) => console.log(action, id, obj)}
+          />
+        </div>
+        <div className="mt-10">
+          <TextCustom text="Estados para tabla" className="text-xl" />
+          <Divider className="mb-2" />
+          <TableCustom
+            data={usersMin}
+            columns={columnsBasic3}
+            identifierSort="STATE"
           />
         </div>
       </div>

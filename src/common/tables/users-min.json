@@ -30,7 +30,7 @@
     "age": 48,
     "country": "Czech Republic",
     "phone": "8672773997",
-    "STATE": "EXPIRADO"
+    "STATE": "INACTIVO"
   },
   {
     "id": 4,
@@ -52,7 +52,7 @@
     "age": 57,
     "country": "Russia",
     "phone": "3932158370",
-    "STATE": "ACTIVO"
+    "STATE": "VIGENTE"
   },
   {
     "id": 6,
@@ -74,7 +74,7 @@
     "age": 21,
     "country": "Indonesia",
     "phone": "1216713219",
-    "STATE": "ACTIVO"
+    "STATE": "VIGENTE"
   },
   {
     "id": 8,
@@ -85,7 +85,7 @@
     "age": 47,
     "country": "Ukraine",
     "phone": "6895680771",
-    "STATE": "EXPIRADO"
+    "STATE": "INACTIVO"
   },
   {
     "id": 9,

@@ -1,8 +1,8 @@
 import React from 'react';
 
 // Components
-import { IconButtonCustom } from '../../atoms';
 import { Tooltip } from '@mui/material';
+import { IconButtonCustom, TableState } from '../../atoms';
 
 // Const
 import { typesTableActions } from '../../../common/types';
@@ -68,7 +68,7 @@ const TableRows = ({
   const renderCells = cell => {
     let element = null;
     if (cell.column.id === 'STATE') {
-      element = <span>Estado</span>;
+      element = <TableState state={cell.value} />;
     } else {
       element = cell.render('Cell');
     }

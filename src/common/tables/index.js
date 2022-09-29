@@ -1,1 +1,1 @@
-export { columnsBasic, columnsBasic2 } from './basic';
+export { columnsBasic, columnsBasic2, columnsBasic3 } from './basic';

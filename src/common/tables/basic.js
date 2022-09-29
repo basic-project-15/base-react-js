@@ -45,3 +45,22 @@ export const columnsBasic2 = [
     accessor: 'last_name',
   },
 ];
+
+export const columnsBasic3 = [
+  {
+    Header: 'Id',
+    accessor: 'id',
+  },
+  {
+    Header: 'Primer Nombre',
+    accessor: 'first_name',
+  },
+  {
+    Header: 'Segundo Nombre',
+    accessor: 'last_name',
+  },
+  {
+    Header: 'Estado',
+    accessor: 'STATE',
+  },
+];
