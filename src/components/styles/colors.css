@@ -77,3 +77,43 @@
 .bg-orange {
   background-color: #ffcc00;
 }
+
+.fill-general {
+  fill: #0081a7;
+}
+
+.fill-primary {
+  fill: #00afb9;
+}
+
+.fill-secondary {
+  fill: #f07167;
+}
+
+.fill-optional {
+  fill: #fed9b7;
+}
+
+.fill-neutral {
+  fill: #fdfcdc;
+}
+
+.fill-gray {
+  fill: #6c757d;
+}
+
+.fill-ligth-gray {
+  fill: #bebebe;
+}
+
+.fill-green {
+  fill: #22bb33;
+}
+
+.fill-red {
+  fill: #f32013;
+}
+
+.fill-orange {
+  fill: #ffcc00;
+}

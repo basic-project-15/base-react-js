@@ -1,4 +1,4 @@
-export const typesActionsAuth = {
+export const typesGlobalState = {
   authLogin: '[user] login',
   authLogout: '[user] logout',
 };

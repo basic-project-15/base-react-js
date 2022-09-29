@@ -14,13 +14,13 @@ import {
 } from '../../atoms';
 
 // Const
-import { typesActionsAuth } from '../../../common/types';
+import { typesGlobalState } from '../../../common/types';
 
 // Core
 import { formValidLogin } from '../../../core/validations';
 import { apiLogin } from '../../../services/apis';
 
-const { authLogin } = typesActionsAuth;
+const { authLogin } = typesGlobalState;
 
 const Login = () => {
   const { dispatchAuth } = useContext(AuthContext);
