@@ -91,6 +91,11 @@ const SideMenu = ({ onChange = () => null }) => {
     onChange();
   };
 
+  const handleComponentsTable = () => {
+    navigate('/dashboard/componentsTable');
+    onChange();
+  };
+
   return (
     <div className="flex flex-col h-full p-4">
       <div className="flex justify-center items-center pt-5 pb-4 text-white">
@@ -191,6 +196,12 @@ const SideMenu = ({ onChange = () => null }) => {
                 onClick={handleComponentsDialog}
                 icon={<ExtensionIcon className="text-white" />}
                 isSelected={location.pathname === '/dashboard/componentsDialog'}
+              />
+              <DrawerItem
+                text={'Tablas'}
+                onClick={handleComponentsTable}
+                icon={<ExtensionIcon className="text-white" />}
+                isSelected={location.pathname === '/dashboard/componentsTable'}
               />
             </List>
           </Collapse>
