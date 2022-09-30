@@ -2,12 +2,8 @@ import React, { useState, useEffect } from 'react';
 
 // Components
 import { Divider } from '@mui/material';
-import { AlertCustom, ButtonCustom, Loader, TextCustom } from '../../atoms';
-import {
-  DialogUserAdd,
-  DialogUserDelete,
-  DialogUserEdit,
-} from '../../organisms';
+import { AlertCustom, ButtonCustom, TextCustom } from '../../atoms';
+import { DialogUserDelete, DialogUserEdit } from '../../organisms';
 import { TableCustom } from '../../templates';
 
 // Const
@@ -17,15 +13,12 @@ import { typesTableActions } from '../../../common/types';
 // Services
 import { apiGetUsers } from '../../../services/apis';
 
-const { tableEdit, tableDelete } = typesTableActions;
+const { tableEdit } = typesTableActions;
 
 const Configuration = () => {
   const [users, setUsers] = useState([]);
   const [idUser, setIdUser] = useState('');
-  const [showAdd, setShowAdd] = useState(false);
   const [showEdit, setShowEdit] = useState(false);
-  const [showDelete, setShowDelete] = useState(false);
-  const [loader, setLoader] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
   const [alert, setAlert] = useState({
     title: '',
@@ -44,20 +37,14 @@ const Configuration = () => {
 
   const loadUsers = async () => {
     resetForm();
-    setLoader(true);
     const response = await apiGetUsers();
     const { success, message, data } = response;
     if (success) {
-      setUsers(data.users);
+      // Setear lista de usuarios
     } else {
-      setShowAlert(true);
-      setAlert({
-        title: 'Error',
-        description: message,
-        severity: 'error',
-      });
+      // Mostrar Alerta
     }
-    setLoader(false);
+    // Detener Loader
   };
 
   const handleTableActions = (action, id, obj) => {
@@ -65,9 +52,6 @@ const Configuration = () => {
     switch (action) {
       case tableEdit:
         setShowEdit(true);
-        break;
-      case tableDelete:
-        setShowDelete(true);
         break;
       default:
         setIdUser('');
@@ -83,7 +67,7 @@ const Configuration = () => {
         <ButtonCustom
           text="Crear Usuario"
           className="my-3"
-          onClick={() => setShowAdd(true)}
+          onClick={() => console.log('Crear usuario')}
         />
       </div>
       <div className="px-4">
@@ -98,20 +82,15 @@ const Configuration = () => {
           <TableCustom
             data={users}
             columns={columnsUsers}
-            actions={[tableEdit, tableDelete]}
+            actions={[tableEdit]}
             actionClick={handleTableActions}
-            identifierSort="name"
+            // Ordenar registros por nombre por defecto
             identifierHidden="id"
             identifierAction="id"
           />
-          {loader && <Loader mode="modal" />}
+          {/* Loader? */}
         </div>
       </div>
-      <DialogUserAdd
-        open={showAdd}
-        setOpen={setShowAdd}
-        onDismiss={loadUsers}
-      />
       <DialogUserEdit
         idUser={idUser}
         open={showEdit}
@@ -119,10 +98,8 @@ const Configuration = () => {
         onDismiss={loadUsers}
       />
       <DialogUserDelete
-        idUser={idUser}
-        open={showDelete}
-        setOpen={setShowDelete}
-        onDismiss={loadUsers}
+        idUser={''}
+        onDismiss={() => console.log('Actualizar tabla')}
       />
     </div>
   );
