@@ -4,4 +4,4 @@ export {
   validInputInitialNumbers,
 } from './validateInput';
 export { formValidLogin } from './validLogin';
-export { formValidUser } from './validUser';
+export { formValidAddUser, formValidEditUser } from './validUser';

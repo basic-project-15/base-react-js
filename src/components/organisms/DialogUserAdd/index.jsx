@@ -17,7 +17,7 @@ import {
 import { typesValidation } from '../../../common/types';
 
 // Core
-import { formValidUser } from '../../../core/validations';
+import { formValidAddUser } from '../../../core/validations';
 import { apiPostUser } from '../../../services/apis';
 
 const DialogUserAdd = ({
@@ -100,7 +100,7 @@ const DialogUserAdd = ({
       password,
       confirmPassword,
     };
-    const response = formValidUser(params);
+    const response = formValidAddUser(params);
     setFormErrors(response.msgValid.errors);
     setFormSuccess(response.msgValid.success);
     return response.isValid;
@@ -137,6 +137,7 @@ const DialogUserAdd = ({
             setValue={setName}
             className="mt-2"
             maxLength={50}
+            required
             typesValidation={typesValidation.onlyLettersExtend}
             msgError={formErrors.name}
             success={formSuccess.name}
@@ -147,6 +148,7 @@ const DialogUserAdd = ({
             setValue={setEmail}
             className="mt-2"
             maxLength={30}
+            required
             msgError={formErrors.email}
             success={formSuccess.email}
           />
@@ -157,6 +159,7 @@ const DialogUserAdd = ({
             className="mt-2"
             type="password"
             maxLength={25}
+            required
             msgError={formErrors.password}
             success={formSuccess.password}
           />
@@ -167,6 +170,7 @@ const DialogUserAdd = ({
             className="mt-2"
             type="password"
             maxLength={25}
+            required
             msgError={formErrors.confirmPassword}
             success={formSuccess.confirmPassword}
           />

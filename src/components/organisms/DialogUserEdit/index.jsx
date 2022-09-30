@@ -17,7 +17,7 @@ import {
 import { typesValidation } from '../../../common/types';
 
 // Core
-import { formValidUser } from '../../../core/validations';
+import { formValidEditUser } from '../../../core/validations';
 import { apiGetUser, apiPatchUser } from '../../../services/apis';
 
 const DialogUserEdit = ({
@@ -125,7 +125,7 @@ const DialogUserEdit = ({
       password,
       confirmPassword,
     };
-    const response = formValidUser(params);
+    const response = formValidEditUser(params);
     setFormErrors(response.msgValid.errors);
     setFormSuccess(response.msgValid.success);
     return response.isValid;
@@ -162,6 +162,7 @@ const DialogUserEdit = ({
             setValue={setName}
             className="mt-2"
             maxLength={50}
+            required
             typesValidation={typesValidation.onlyLettersExtend}
             msgError={formErrors.name}
             success={formSuccess.name}
@@ -172,6 +173,7 @@ const DialogUserEdit = ({
             setValue={setEmail}
             className="mt-2"
             maxLength={30}
+            required
             msgError={formErrors.email}
             success={formSuccess.email}
           />
