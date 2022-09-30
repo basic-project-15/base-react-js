@@ -116,7 +116,7 @@ const TextInputCustom = ({
             },
           },
           '& .MuiInputLabel-asterisk': {
-            display: 'none',
+            color: red,
           },
           '& .MuiInputLabel-shrink': {
             marginLeft: 2,

@@ -29,7 +29,13 @@ const Login = () => {
 
   // Validations
   const [loader, setLoader] = useState(false);
+  const [enabledValid, setEnabledValid] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
+  const [alert, setAlert] = useState({
+    title: '',
+    description: '',
+    severity: 'info',
+  });
   const [formErrors, setFormErrors, resetFormErrors] = useForm({
     email: '',
     password: '',
@@ -38,21 +44,18 @@ const Login = () => {
     email: false,
     password: false,
   });
-  const [alert, setAlert, resetAlert] = useForm({
-    title: '',
-    description: '',
-    severity: 'info',
-  });
 
   const resetForm = () => {
+    setShowAlert(false);
     resetFormErrors();
     resetFormSuccess();
-    resetAlert();
     setEmail('');
     setPassword('');
   };
 
   const handleLogin = async () => {
+    setShowAlert(false);
+    setEnabledValid(true);
     if (handleValidForm()) {
       setLoader(true);
       const params = { email, password };
@@ -107,7 +110,8 @@ const Login = () => {
               type="email"
               value={email}
               setValue={setEmail}
-              onBlur={handleValidForm}
+              onBlur={() => enabledValid && handleValidForm()}
+              onEnter={handleLogin}
               msgError={formErrors.email}
               success={formSuccess.email}
             />
@@ -116,7 +120,7 @@ const Login = () => {
               type="password"
               value={password}
               setValue={setPassword}
-              onBlur={handleValidForm}
+              onBlur={() => enabledValid && handleValidForm()}
               onEnter={handleLogin}
               msgError={formErrors.password}
               success={formSuccess.password}
