@@ -18,9 +18,10 @@ import { typesValidation } from '../../../common/types';
 
 // Core
 import { formValidUser } from '../../../core/validations';
-import { apiPostUser } from '../../../services/apis';
+import { apiGetUser, apiPatchUser } from '../../../services/apis';
 
-const DialogUserAdd = ({
+const DialogUserEdit = ({
+  idUser = '',
   open = false,
   setOpen = () => null,
   onDismiss = () => null,
@@ -50,7 +51,9 @@ const DialogUserAdd = ({
   });
 
   useEffect(() => {
-    if (!open) {
+    if (open) {
+      loadUser();
+    } else {
       resetForm();
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -68,15 +71,37 @@ const DialogUserAdd = ({
     resetFormSuccess();
   };
 
+  const loadUser = async () => {
+    setLoader(true);
+    const params = { idUser };
+    const response = await apiGetUser(params);
+    const { success, message, data } = response;
+    if (success) {
+      setName(data.user.name);
+      setEmail(data.user.email);
+      setPassword('');
+      setConfirmPassword('');
+    } else {
+      setShowAlert(true);
+      setAlert({
+        title: 'Error',
+        description: message,
+        severity: 'warning',
+      });
+    }
+    setLoader(false);
+  };
+
   const handleAccept = async () => {
     if (handleValidForm()) {
       setLoader(true);
       const params = {
+        idUser,
         name,
         email,
         password,
       };
-      const response = await apiPostUser(params);
+      const response = await apiPatchUser(params);
       const { success, message } = response;
       if (success) {
         setOpen(false);
@@ -119,7 +144,7 @@ const DialogUserAdd = ({
     <DialogCustom
       open={open}
       setOpen={setOpen}
-      title="Crear Usuario"
+      title="Editar Usuario"
       onDismiss={handleDismiss}
     >
       <DialogContent style={{ width: 500 }}>
@@ -189,4 +214,4 @@ const DialogUserAdd = ({
   );
 };
 
-export default DialogUserAdd;
+export default DialogUserEdit;
