@@ -12,5 +12,6 @@ export { default as RadioCustom } from './RadioCustom';
 export { default as RadioButtonsCustom } from './RadioButtonsCustom';
 export { default as SelectCustom } from './SelectCustom';
 export { default as SwitchCustom } from './SwitchCustom';
+export { default as TableState } from './TableState';
 export { default as TextCustom } from './TextCustom';
 export { default as TextInputCustom } from './TextInputCustom';
