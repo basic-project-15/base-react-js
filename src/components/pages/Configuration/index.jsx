@@ -6,7 +6,11 @@ import { useForm } from '../../../hooks/others';
 // Components
 import { Divider } from '@mui/material';
 import { AlertCustom, ButtonCustom, Loader, TextCustom } from '../../atoms';
-import { DialogUserAdd, DialogUserEdit } from '../../organisms';
+import {
+  DialogUserAdd,
+  DialogUserDelete,
+  DialogUserEdit,
+} from '../../organisms';
 import { TableCustom } from '../../templates';
 
 // Const
@@ -116,6 +120,12 @@ const Configuration = () => {
         idUser={idUser}
         open={showEdit}
         setOpen={setShowEdit}
+        onDismiss={loadUsers}
+      />
+      <DialogUserDelete
+        idUser={idUser}
+        open={showDelete}
+        setOpen={setShowDelete}
         onDismiss={loadUsers}
       />
     </div>

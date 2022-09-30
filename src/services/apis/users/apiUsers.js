@@ -116,3 +116,31 @@ export const apiPatchUser = async params => {
   }
   return dataResponse;
 };
+
+export const apiDeleteUser = async params => {
+  const url = `${process.env.REACT_APP_api}${typesEndpoint.deleteUser}`;
+  const method = 'delete';
+  const dataResponse = {
+    success: false,
+    statusCode: 0,
+    message: '',
+    data: [],
+  };
+
+  const request = {
+    idUser: params.idUser,
+  };
+
+  try {
+    const response = await axios[method](url, buildRequest(request));
+    const { status, data } = response;
+    dataResponse.success = true;
+    dataResponse.data = data.data;
+    dataResponse.statusCode = status;
+  } catch (error) {
+    dataResponse.message = error.response.data?.message;
+    dataResponse.data = error;
+    dataResponse.statusCode = error.response?.status;
+  }
+  return dataResponse;
+};

@@ -4,4 +4,5 @@ export {
   apiGetUser,
   apiPostUser,
   apiPatchUser,
+  apiDeleteUser,
 } from './users/apiUsers';
