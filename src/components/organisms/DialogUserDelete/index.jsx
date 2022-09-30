@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 // Components
 import { DialogActions, DialogContent } from '@mui/material';
 import { DialogCustom } from '../../templates';
-import { ButtonCustom } from '../../atoms';
+import { ButtonCustom, TextCustom } from '../../atoms';
 
 const DialogUserDelete = ({
   open = false,
@@ -27,6 +27,7 @@ const DialogUserDelete = ({
       <DialogContent style={{ width: 500 }}>
         <div className="flex flex-col relative items-center mt-4">
           {/* Cuerpo de la ventana modal */}
+          <TextCustom text="Buena suerte!!!" className="text-3xl" />
         </div>
       </DialogContent>
       <DialogActions>
