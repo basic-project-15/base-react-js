@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-// Hooks
-import { useForm } from '../../../hooks/others';
-
 // Components
 import { Divider } from '@mui/material';
 import { AlertCustom, ButtonCustom, Loader, TextCustom } from '../../atoms';
@@ -30,7 +27,7 @@ const Configuration = () => {
   const [showDelete, setShowDelete] = useState(false);
   const [loader, setLoader] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
-  const [alert, setAlert, resetAlert] = useForm({
+  const [alert, setAlert] = useState({
     title: '',
     description: '',
     severity: 'info',
@@ -42,7 +39,6 @@ const Configuration = () => {
   }, []);
 
   const resetForm = () => {
-    resetAlert();
     setShowAlert(false);
   };
 

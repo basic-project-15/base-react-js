@@ -31,8 +31,9 @@ const DialogUserEdit = ({
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [loader, setLoader] = useState(false);
+  const [enabledValid, setEnabledValid] = useState(false);
   const [showAlert, setShowAlert] = useState(false);
-  const [alert, setAlert, resetAlert] = useForm({
+  const [alert, setAlert] = useState({
     title: '',
     description: '',
     severity: 'info',
@@ -66,7 +67,6 @@ const DialogUserEdit = ({
     setConfirmPassword('');
     setLoader(false);
     setShowAlert(false);
-    resetAlert();
     resetFormErrors();
     resetFormSuccess();
   };
@@ -93,6 +93,8 @@ const DialogUserEdit = ({
   };
 
   const handleAccept = async () => {
+    setShowAlert(false);
+    setEnabledValid(true);
     if (handleValidForm()) {
       setLoader(true);
       const params = {
@@ -160,6 +162,8 @@ const DialogUserEdit = ({
             name="Nombre"
             value={name}
             setValue={setName}
+            onBlur={() => enabledValid && handleValidForm()}
+            onEnter={handleAccept}
             className="mt-2"
             maxLength={50}
             required
@@ -171,6 +175,8 @@ const DialogUserEdit = ({
             name="Email"
             value={email}
             setValue={setEmail}
+            onBlur={() => enabledValid && handleValidForm()}
+            onEnter={handleAccept}
             className="mt-2"
             maxLength={30}
             required
@@ -181,6 +187,8 @@ const DialogUserEdit = ({
             name="Contraseña"
             value={password}
             setValue={setPassword}
+            onBlur={() => enabledValid && handleValidForm()}
+            onEnter={handleAccept}
             className="mt-2"
             type="password"
             maxLength={25}
@@ -191,6 +199,8 @@ const DialogUserEdit = ({
             name="Confirmar contraseña"
             value={confirmPassword}
             setValue={setConfirmPassword}
+            onBlur={() => enabledValid && handleValidForm()}
+            onEnter={handleAccept}
             className="mt-2"
             type="password"
             maxLength={25}

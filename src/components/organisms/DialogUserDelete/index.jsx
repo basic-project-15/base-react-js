@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react';
 
-// Hooks
-import { useForm } from '../../../hooks/others';
-
 // Components
 import { DialogActions, DialogContent } from '@mui/material';
 import { DialogCustom } from '../../templates';
@@ -20,7 +17,7 @@ const DialogUserDelete = ({
   const [loader, setLoader] = useState(false);
   const [name, setName] = useState('');
   const [showAlert, setShowAlert] = useState(false);
-  const [alert, setAlert, resetAlert] = useForm({
+  const [alert, setAlert] = useState({
     title: '',
     description: '',
     severity: 'info',
@@ -36,7 +33,6 @@ const DialogUserDelete = ({
   }, [open]);
 
   const resetForm = () => {
-    resetAlert();
     setShowAlert();
     setName('');
     setLoader(false);
